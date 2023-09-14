@@ -7,27 +7,19 @@ public class FactorialTwo {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter a positive number or kindly press 0 to stop: ");
         int userInput = scanner.nextInt();
-        while (userInput < 0) {
-            System.out.println("kindly Enter a positive number: ");
-            userInput = scanner.nextInt();
+        double total = 1;
+        double sum =1;
+        double total2 =0;
+        for(int number = 1; number <= userInput; number++) {
+            sum *=number;
         }
-        int product = 1;
-        int sum =0;
-        for(int number = userInput; number >= 1; number --){
-            product *= number;
-            sum += product;
+            for( int index = 1; index <= userInput; index--){
+                total2 = total +(1.0/ sum * (index));
 
-//            System.out.println("Enter number 1 to continue or kindly press 0 to stop: ");
-//             int number2 = scanner.nextInt();
-//             if(number25 == 0){
-//                 break;
-//             }0
         }
 
-        System.out.println(product);
-        System.out.println(sum);
-
-       // System.out.println("The factorial of " + userInput + " = " + product);
+        System.out.println(total2 + 1);
+        System.out.println(Math.exp(userInput));
 
     }
 }
