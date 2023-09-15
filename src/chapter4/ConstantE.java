@@ -13,8 +13,6 @@ public class ConstantE {
             product = product * (1.0 / sum);
             result += product;
         }
-
         System.out.println(result);
-
     }
 }

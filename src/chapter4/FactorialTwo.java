@@ -5,21 +5,21 @@ import java.util.Scanner;
 public class FactorialTwo {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Enter a positive number or kindly press 0 to stop: ");
+        System.out.println("Enter an integer  ");
         int userInput = scanner.nextInt();
-        double total = 1;
-        double sum =1;
-        double total2 =0;
-        for(int number = 1; number <= userInput; number++) {
-            sum *=number;
-        }
-            for( int index = 1; index <= userInput; index--){
-                total2 = total +(1.0/ sum * (index));
+        int product = 1;
+        double  divide = 0;
+        int product2 =1;
+        double sum = 1;
+        for(int number = 1;number <= userInput;number++){
+            product *= userInput;
+            product2 *= number;
+            divide = (double) product / product2;
+            sum += divide;
 
         }
+        System.out.println("Constant e is = "+ sum);
 
-        System.out.println(total2 + 1);
-        System.out.println(Math.exp(userInput));
 
     }
 }
