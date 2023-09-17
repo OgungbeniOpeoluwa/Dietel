@@ -10,16 +10,20 @@ public class GasMIleagaObject {
         int count = scanner.nextInt();
         int counter = 0;
         int counter2 = 0;
+        int milesCount = 0;
+        int gallonCount = 0;
 
 
         while(count != counter) {
             System.out.println("Enter number of miles Driven : ");
             int miles = scanner.nextInt();
             autoMobile.miles(miles);
+            milesCount+=miles;
 
             System.out.println("Enter number of gallon used : ");
             int gallon = scanner.nextInt();
             autoMobile.gallon(gallon);
+            gallonCount += gallon;
 
             autoMobile.milesPerGallon(miles, gallon);
             System.out.println("miles per gallon = "  + autoMobile.getFuelConsumption());

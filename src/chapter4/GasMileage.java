@@ -34,8 +34,7 @@ public class GasMileage {
     public void milesPerGallon(int gallon,int miles){
         this.gallon = gallon;
         this.miles = miles;
-        fuelConsumption = gallon/miles;
-       totalConsumption += fuelConsumption;
+        fuelConsumption = miles/gallon;
     }
 
     public int getFuelConsumption(){
