@@ -11,10 +11,22 @@ public class Palindrome {
             System.out.println("You have Enter a wrong value,Kindly input a five digit number : ");
             input = scanner.nextInt();
         }
-        int total = input / 10000;
-        int total5 = input % 10;
+        int firstDigit  = input / 10000;
+        int secondDigit = input / 1000 % 10;
+        int thirdDigit = input / 100 % 10;
+        int fourthDigit = input / 10 % 10;
+        int fifthDigit  = input % 10;
 
-        if(total == total5){
+        String numberOne = String.valueOf( firstDigit);
+        String numberTwo = String.valueOf(secondDigit);
+        String numberThree = String.valueOf(thirdDigit);
+        String numberFour = String.valueOf(fourthDigit);
+        String numberFive = String.valueOf(fifthDigit);
+
+        String reverse = numberFive + numberFour + numberThree + numberTwo + numberOne;
+        int palindrome = Integer.parseInt(reverse);
+
+        if(input == palindrome){
             System.out.println(input + " is a palindrome number");
         }
         else{
