@@ -1,6 +1,6 @@
 package chibuzorAssignment;
 
-public class EvenFunction {
+public class Function {
 
     public static boolean evenNumber(int number) {
         if (number % 2 == 0) {

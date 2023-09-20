@@ -54,5 +54,16 @@ class AccountTest {
         assertEquals(2000, account.checkBalance());
     }
 
+    @Test
+    public void testTransfer(){
+        Account account = new Account();
+        Account account1 = new Account();
+        account.deposit(8000);
+        assertEquals(8000,account.checkBalance());
+        account.transfer(5000,account1);
+        assertEquals(3000,account.checkBalance());
+        assertEquals(5000,account1.checkBalance());
+    }
+
 
 }

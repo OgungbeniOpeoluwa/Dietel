@@ -16,6 +16,11 @@ public class Account {
         balance = balance - amount;
 
     }
+
+    public void transfer(int amount, Account name) {
+        withdrawal(amount);
+        name.deposit(amount);
+    }
 }
 
 
