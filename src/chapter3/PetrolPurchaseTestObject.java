@@ -2,7 +2,7 @@ package chapter3;
 
 import java.util.Scanner;
 
-public class PetrolPurchaseTest {
+public class PetrolPurchaseTestObject {
 
     public static void main(String[] args){
         PetrolPurchase petrol = new PetrolPurchase("Yaba", "Gasoline", 5, 500.78, 0.005);

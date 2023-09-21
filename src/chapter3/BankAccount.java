@@ -8,24 +8,27 @@ public class BankAccount {
 
     public BankAccount(String name, double balance){
         this.name = name;
-        this.balance = balance;
+        if(balance > 0.0) {
+            this.balance = balance;
+        }
 
+    }
+    public void deposit(double depositAmount){
+        if(depositAmount > 0.0){
+            balance = balance + depositAmount;
+        }
     }
 
     public void setName(String name){
         this.name = name;
     }
 
-
-
-
-
-
-    public  static  void displayAccount(){
-
-    }
-
     public String getName() {
         return name;
+    }
+    public double getBalance(){
+        return  balance;
+
+
     }
 }

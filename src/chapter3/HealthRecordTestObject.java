@@ -1,12 +1,10 @@
 package chapter3;
 
-import java.time.LocalDate;
 import java.util.Scanner;
 
-public class HealthRecordTest {
+public class HealthRecordTestObject {
     public static void main(String[] args){
         Scanner scanner = new Scanner(System.in);
-       // LocalDate date = new LocalDate.Now();
         HealthRecord health = new HealthRecord("joy", "joseph", "female",   23, "july",1999,50,65);
 
         System.out.println("Enter your first name : ");
@@ -46,15 +44,16 @@ public class HealthRecordTest {
         System.out.printf("%s %d %s %d%n", "Date of Birth : ", health.getDateOfBirth(), health.getMonthOfBirth(), health.getYearOfBirth());
         System.out.println("Weight : " + health.getWeight());
         System.out.println("Height : " + health.getHeight());
-
-        health.ageCaculator(2023);
+        System.out.println("Enter current year: ");
+        int year = scanner.nextInt();
+        health.ageCaculator(year);
         health.maximumHeartRate();
         health.bodyMassIndex();
         System.out.println("Kindly confirm your Detail : ");
         System.out.println();
         System.out.printf("Name : %s %s%n", health.getSurname(), health.getFirstname());
         System.out.printf("%s %d %s %d%n", "Date of Birth : ", health.getDateOfBirth(), health.getMonthOfBirth(), health.getYearOfBirth());
-        System.out.printf("Current Age In Year : %d%n", health.age());
+        System.out.printf("Current Age In Year : %d%n", health.ageCaculator(2023));
         System.out.println();
 
         System.out.println("Body mass categories");
@@ -64,9 +63,9 @@ public class HealthRecordTest {
         System.out.println("obesity = 30 >="  + " that is greater than or equal to 30");
 
 
-        System.out.printf("Body Mass iIndex : %d%n ", health.bodyMass());
+        System.out.printf("Body Mass iIndex : %d%n ", health.bodyMassIndex());
         System.out.println();
-        System.out.printf("Maximum Heart rate Caculator : %d%n", health.maxHeartRate());
+        System.out.printf("Maximum Heart rate Caculator : %f%n", health.maximumHeartRate());
 
         System.out.println(" Moderate intensity Physical activity is between 50% and 65%");
         System.out.println("For vigorous intesity excersice is within 70% && 85%");
@@ -82,7 +81,7 @@ public class HealthRecordTest {
 
         System.out.println();
 
-        System.out.printf("Your target heart rate is %.2fbmp - %.2fbmp%n" ,health.targetHeartRate(), health.targetHeartRate() );
+        System.out.printf("Your target heart rate is %.2fbmp - %.2fbmp%n" ,health.targetHeart(excersise), health.targetHeart(excerise2) );
 
 
 

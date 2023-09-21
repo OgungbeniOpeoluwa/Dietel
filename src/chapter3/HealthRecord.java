@@ -1,6 +1,7 @@
 package chapter3;
 
 public class HealthRecord {
+
     private String firstname;
     private String surname;
     private String gender;
@@ -9,11 +10,6 @@ public class HealthRecord {
     private int yearOfBirth;
     private int weight;
     private int height;
-    private int age;
-    private int bmi;
-    private int maximumHeartRate;
-
-    private double targetRate;
 
     public HealthRecord(String firstname, String surname, String gender, int dateOfBirth, String monthOfBirth, int yearOfBirth, int weight, int height) {
         this.firstname = firstname;
@@ -46,7 +42,7 @@ public class HealthRecord {
         this.yearOfBirth = yearOfBirth;
     }
 
-    public void setGender(String gender){
+    public void setGender(String gender) {
         this.gender = gender;
     }
 
@@ -67,7 +63,7 @@ public class HealthRecord {
     }
 
     public int getYearOfBirth() {
-        return  yearOfBirth;
+        return yearOfBirth;
     }
 
     public void setHeight(int height) {
@@ -77,6 +73,7 @@ public class HealthRecord {
     public void setWeight(int weight) {
         this.weight = weight;
     }
+
     public int getWeight() {
         return weight;
     }
@@ -85,48 +82,40 @@ public class HealthRecord {
         return height;
     }
 
-    public String gender(){
+    public String gender() {
         return gender;
     }
 
-    public void ageCaculator(int currentYear) {
-        age = currentYear - yearOfBirth;
-    }
+    int age = 0;
 
-    public int age() {
+    public int ageCaculator(int currentYear) {
+        age = currentYear - yearOfBirth;
         return age;
     }
-
-    public void bodyMassIndex() {
+    int bmi = 0;
+    public int bodyMassIndex() {
         bmi = (weight * 703) / (height * height);
-    }
-
-    public int bodyMass() {
         return bmi;
     }
 
-    public void maximumHeartRate() {
+    double maximumHeartRate = 0;
+
+    public double maximumHeartRate() {
         int value = 220;
         maximumHeartRate = value - age;
-    }
-
-    public int maxHeartRate() {
-
         return maximumHeartRate;
     }
 
-    public void targetHeart(double number){
-        if(number >= 50) {
-            double rate = number / 100;
-            double targetValues = maximumHeartRate * rate;
-            this.targetRate = targetValues;
+    public double targetHeart(double number) {
+        double rate = 0;
+        if (number >= 50) {
+            rate = number / 100;
         }
+        return maximumHeartRate * rate;
+    }
+}
 
-    }
-            public double targetHeartRate(){
-            return targetRate;
-        }
-    }
+
 
 
 

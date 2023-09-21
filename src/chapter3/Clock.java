@@ -1,6 +1,7 @@
 package chapter3;
 
 public class Clock {
+
         private int hour;
         private int minutes;
         private int  second;
@@ -15,7 +16,6 @@ public class Clock {
         public void setMinutes(int minutes){
             if(minutes > 59){
                 this.minutes = 0;
-                //System.out.println(0);
             }
             else{this.minutes = minutes;}
         }
@@ -23,7 +23,6 @@ public class Clock {
         public void setHour(int hour){
             if(hour > 23){
                 this.hour = 0;
-                //System.out.println(0);
             }
             else{this.hour = hour;}
         }
@@ -31,9 +30,12 @@ public class Clock {
         public void setSecond(int second){
             if(second > 59){
                 this.second = 0;
-                //System.out.println(0);
             }
             else{this.second = second;}
+        }
+        public String displayClock(){
+            return String.format("%d:%d:%d",getHour(),getMinutes(),getSecond());
+
         }
 
         public int getHour(){

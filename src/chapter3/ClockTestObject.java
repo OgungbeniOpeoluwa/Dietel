@@ -2,7 +2,7 @@ package chapter3;
 
 import java.util.Scanner;
 
-public class ClockTest {
+public class ClockTestObject {
     public static void main(String[] args){
         Scanner scanner = new Scanner(System.in);
 
@@ -16,11 +16,11 @@ public class ClockTest {
         int hour = scanner.nextInt();
         clock.setHour(hour);
 
-        System.out.println("Enter curent second:" );
+        System.out.println("Enter current second:" );
         int seconds = scanner.nextInt();
             clock.setSecond(seconds);
 
-            System.out.printf("Current time is : %d:%d:%d hh:mm:ss%n", clock.getHour(), clock.getMinutes(), clock.getSecond());
+            System.out.println("Current time is :"+ clock.displayClock());
 
         }
     }

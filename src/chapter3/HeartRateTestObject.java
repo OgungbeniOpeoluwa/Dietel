@@ -1,9 +1,8 @@
 package chapter3;
 
-import java.util.Arrays;
 import java.util.Scanner;
 
-public class HeartRateTest {
+public class HeartRateTestObject {
     public static void main(String[] args){
         Scanner scanner = new Scanner(System.in);
         HeartRate heartRate = new HeartRate("joy", "joseph", 24,   "july", + 1999);
@@ -27,15 +26,16 @@ public class HeartRateTest {
         System.out.println("Kindly enter your year of birth : ");
         int yearOfBirth = scanner.nextInt();
         heartRate.setYearOfBirth(yearOfBirth);
-
-       heartRate.caculateAgeInyears(2023);
+        System.out.println("Enter current year: ");
+        int year = scanner.nextInt();
+       heartRate.caculateAgeInyears(year);
         heartRate.maximumHeartRate();
         System.out.println("Kindly confirm your Detail : ");
         System.out.println();
         System.out.printf("Name : %s %s%n", heartRate.getSurname(), heartRate.getFirstname());
         System.out.printf("%s %d %s %d%n", "Date of Birth : ", heartRate.getDateOfBirth(), heartRate.getMonthOfBirth(), heartRate.getYearOfBirth());
-        System.out.printf("Current Age In Year : %d%n", heartRate.caculatedAgeInYears());
-        System.out.printf("Maximum Heart rate : %d%n ", heartRate.caculatedHearRate());
+        System.out.printf("Current Age In Year : %d%n", heartRate.caculateAgeInyears(year));
+        System.out.printf("Maximum Heart rate : %f%n ", heartRate.maximumHeartRate());
         System.out.println();
         System.out.println(" Moderate intensity Physical activity is between 50% and 65%");
         System.out.println("For vigorous intesity excersice is within 70% && 85%");
@@ -51,7 +51,7 @@ public class HeartRateTest {
 
         System.out.println();
 
-        System.out.printf("Your target heart rate is %.2fbmp - %.2fbmp%n" ,heartRate.targetHeartRateRange(), heartRate.targetHeartRateRange() );
+        System.out.printf("Your target heart rate is %.2fbmp - %.2fbmp%n" ,heartRate.targetHeartRate(excersise), heartRate.targetHeartRate(excerise2) );
 
 
     }

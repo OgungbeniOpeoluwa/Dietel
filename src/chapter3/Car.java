@@ -1,6 +1,7 @@
 package chapter3;
 
 public class Car {
+
         private String carModel;
         private String year;
         private double price;
@@ -40,6 +41,13 @@ public class Car {
         public double getPrice(){
             return price;
         }
+
+
+    public  void  discountPrice(double percent){
+            double divide = percent/100;
+           price = price - (price * divide);
+
+    }
 
     }
 
