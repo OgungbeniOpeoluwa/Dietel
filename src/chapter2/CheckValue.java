@@ -25,19 +25,19 @@ public class CheckValue {
             System.out.println(number1  + " is a negative number" );
 
         }
-       else if(number2 < 0 ){
+       if(number2 < 0 ){
             System.out.println(number2  +  " is a negative number");
         }
 
-        else if(number3 < 0){
+       if(number3 < 0){
             System.out.println(number3  +  " is a negative number");
         }
 
-        else if(number4 < 0){
+       if(number4 < 0){
             System.out.println(number4  + " is a negative number");
         }
 
-        else{
+        if(number5 < 0){
             System.out.println(number5  + " is a negative number");
         }
 
@@ -45,19 +45,19 @@ public class CheckValue {
             System.out.println(number1  + " is a positive number" );
         }
 
-        else if(number2 > 0 ){
+        if(number2 > 0 ){
             System.out.println(number2  +  " is a positive number");
         }
 
-        else if(number3 > 0){
+        if(number3 > 0){
             System.out.println(number3  +  " is a positive number");
         }
 
-        else if(number4 > 0){
+        if(number4 > 0){
             System.out.println(number4  + " is a positive number");
         }
 
-        else{
+        if(number5 > 0){
             System.out.println(number5  + " is a positive number");
         }
 
@@ -65,22 +65,20 @@ public class CheckValue {
             System.out.println(number1  + " is equal to zero" );
         }
 
-        else if(number2 == 0 ){
+        if(number2 == 0 ){
             System.out.println(number2  +  " is equal to zero");
         }
 
-        else if(number3 == 0){
+        if(number3 == 0){
             System.out.println(number3  + " is equal to zero");
         }
-
-        else if(number4 == 0){
+        if(number4 == 0){
             System.out.println(number4  + " is equal to zero");
         }
 
-        else if(number5 == 0){
+        if(number5 == 0){
             System.out.println(number5  + " is equal to zero");
         }
-
 
 
     }
