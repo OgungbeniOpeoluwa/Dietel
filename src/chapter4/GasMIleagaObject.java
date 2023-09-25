@@ -9,37 +9,33 @@ public class GasMIleagaObject {
         System.out.println("Enter -1 to continue or press 0 to stop : ");
         int count = scanner.nextInt();
         int counter = 0;
-        int counter2 = 0;
-        int milesCount = 0;
-        int gallonCount = 0;
+        double result= 0;
+        double milesCount = 0;
+        double gallonCount = 0;
 
 
         while(count != counter) {
             System.out.println("Enter number of miles Driven : ");
-            int miles = scanner.nextInt();
+            double miles = scanner.nextDouble();
             autoMobile.miles(miles);
             milesCount+=miles;
 
             System.out.println("Enter number of gallon used : ");
-            int gallon = scanner.nextInt();
+            double gallon = scanner.nextDouble();
             autoMobile.gallon(gallon);
             gallonCount += gallon;
 
-            autoMobile.milesPerGallon(miles, gallon);
-            System.out.println("miles per gallon = "  + autoMobile.getFuelConsumption());
+            result = autoMobile.milesPerGallon();
+            System.out.println("miles per gallon = "  + result);
 
 
             System.out.println("Enter -1 to continue or press 0 to stop : ");
             count = scanner.nextInt();
-
-
-            counter2++;
-
         }
-        autoMobile.setNumberOfCount(counter2);
+        double average = milesCount / gallonCount;
 
-        System.out.println("Total miles per gallon used is : " + autoMobile.totalFuelConsumption());
-        System.out.println("Average total is = "+ autoMobile.totalFuelConsumption()/ autoMobile.getTotalNumberOfCount());
+        System.out.println("Total miles per gallon used is : " + result);
+        System.out.println("Average total is = "+ average);
 
 
     }

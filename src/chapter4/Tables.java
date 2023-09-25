@@ -2,27 +2,44 @@ package chapter4;
 
 public class Tables {
     public static void main(String[] args) {
-        square();
-    }
-
-    public static void square(){
-        int total = 0;
-        for(int number = 1; number <= 5; number++){
-            total = number * number;
-            System.out.println(total );
+        System.out.println("N1  N2  N3  N4");
+        for (int count = 1; count <= 5; count++) {
+            int result = square(count);
+            int result2 = cube(count);
+            int result3 = multipleOfFour(count);
+            System.out.println(count + "\t " + result + "\t "  + result2 + "\t " + result3);
         }
 
     }
 
-    public static  void cube(){
-        int result = 0;
-        for (int number = 1; number <= 5; number++){
-            result = number * number * number;
-            System.out.println(result);
+
+    public static int square(int number) {
+        int total = 1;
+        for(int count = 1; count <= 2; count++) {
+            total *= number;
         }
+        return total;
     }
 
-    public  static  void multipleOfFour(){
+    public static int cube(int number) {
+        int result = 1;
+        for (int count = 1; count <= 3; count++){
+            result *= number;
+        }
+
+        return result;
 
     }
+
+
+    public static int multipleOfFour(int number) {
+        int result = 1;
+                for(int count = 1 ; count <= 4; count ++){
+                    result *= number;
+                }
+                return result;
+
+    }
+
+
 }

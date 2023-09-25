@@ -11,7 +11,7 @@ public class PatternAsterik {
           for (int sum = 1; sum <= 8; sum++) {
                 System.out.print("* ");
             }
-           System.out.println();
+            System.out.println();
 
 
 

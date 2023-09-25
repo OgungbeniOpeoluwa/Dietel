@@ -21,11 +21,9 @@ public class Car {
         }
 
         public void setPrice(double price){
-            if(price < 0){
-                this.price = 0;
-                //System.out.println("car has no value");
+            if(price > 0) {
+                this.price = price;
             }
-            else{this.price = price;}
         }
 
 

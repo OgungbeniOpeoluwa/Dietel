@@ -28,31 +28,27 @@ class GasMileageTest {
     }
     @Test
     public void testThatMilesPerGallonAreObtainedForEachTrip(){
-        autoMobile.milesPerGallon(5000,50);
-        autoMobile.gallon(5000);
+        autoMobile.gallon(500);
         autoMobile.miles(50);
-        assertEquals(100,autoMobile.getFuelConsumption());
+       double result = autoMobile.milesPerGallon();
+        assertEquals(0.1,result);
 
     }
     @Test
-    public void testThatCombinedMilesPerGallonForAllTripIsObtained(){
-        autoMobile.milesPerGallon(5000,50);
-        autoMobile.milesPerGallon(500,50);
-        autoMobile.milesPerGallon(8000, 100);
-        assertEquals(190,autoMobile.totalFuelConsumption());
-
+    public void testCombinedMilesPerGallon(){
+        autoMobile.gallon(500);
+        autoMobile.miles(10);
+        autoMobile.gallon(200);
+        autoMobile.miles(120);
+        autoMobile.gallon(100);
+        autoMobile.miles(20);
+        double result = autoMobile.combinedMilesPerGallon();
+        assertEquals(0.1875,result);
     }
-@Test
-    public void testThatAverageOfAllCombineTripsIsCalculated(){
-    autoMobile.milesPerGallon(5000,50);
-    autoMobile.milesPerGallon(5000,50);
-    autoMobile.milesPerGallon(5000, 50);
-    autoMobile.setNumberOfCount(3);
-    assertEquals(100,autoMobile.totalFuelConsumption()/autoMobile.getTotalNumberOfCount());
-
-
-}
 
 
 
 }
+
+
+

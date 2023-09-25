@@ -17,7 +17,7 @@ public class Comparator {
         else if (firstInput > secondInput){
             System.out.println("1");
         }
-        else if (secondInput > firstInput){
+        else{
             System.out.println("-1");
         }
     }

@@ -3,30 +3,34 @@ package chapter4;
 import java.util.Scanner;
 
 public class SaleCalculator {
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Enter 1 to calculate sales commission or enter 0 to zero: ");
-        int stop = scanner.nextInt();
+    private int unitSold;
 
-        while(stop != 0){
-            System.out.println("Enter the name of your drop shipping company: ");
-            String name = scanner.nextLine();
-            System.out.println("kindly the number of goods sold for the week : ");
-            int number = scanner.nextInt();
-
-            if(number >= 1 ){
-                int total = 0;
-                for(int sum = 1 ; sum <= number; sum++) {
-                    System.out.println("kindly the value of goods sold  : ");
-                    int item = scanner.nextInt();
-                    total += item;
-                }
-                double commission = total * 0.09 + 200;
-                System.out.println("Dear" + " " + name + " " + "your weekly commission is :" + commission);
-            }
-           System.out.println("Enter 1 to calculate sales commission or enter 0 to zero: ");
-           stop = scanner.nextInt();
-
-        }
+    public void set_unit_sold(int unitSold){
+        this.unitSold = unitSold;
     }
+    public int get_unit_sold(){
+        return unitSold;
+    }
+
+    public double salesCalculator(double percent,int number_of_item) {
+        double result = 0;
+        int unitCount = 0;
+        if (number_of_item == 1) {
+            double percentage = percent / 100;
+            result = 200 + percentage * this.unitSold;
+        } else {
+            for (int count = 1; count <= number_of_item; count++) {
+                unitCount += this.unitSold;
+            }
+            double percentage = percent / 100;
+            result = 200 + percentage * unitCount;
+        }
+
+        return result;
+
+    }
+
+
+
 }
+

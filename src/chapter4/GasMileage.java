@@ -3,47 +3,36 @@ package chapter4;
 import java.util.Scanner;
 
 public class GasMileage {
-    private int miles;
-    private int gallon;
-    private int fuelConsumption;
-    private double totalAverage;
-    private int totalNumberOfCount;
+    private double miles;
+    private double gallon;
 
-    private int totalConsumption;
-
-    public void miles(int miles) {
+    public void miles(double miles) {
         this.miles = miles;
     }
 
-    public int getMiles(){
+    public double getMiles(){
         return miles;
     }
 
-    public void setNumberOfCount(int count){
-        this.totalNumberOfCount = count;
 
-    }
-
-    public void gallon(int gallon) {
+    public void gallon(double gallon) {
         this.gallon = gallon;
     }
-    public int getGallon(){
+    public double getGallon(){
         return gallon;
     }
+    double total = 0;
+    public double milesPerGallon(){
+        total = this.miles / this.gallon;
+        return total;
 
-    public void milesPerGallon(int gallon,int miles){
-        this.gallon = gallon;
-        this.miles = miles;
-        fuelConsumption = miles/gallon;
+    }
+    double gallonCount = 0;
+    double milesCount = 0;
+    public double combinedMilesPerGallon(){
+         gallonCount += this.gallon;
+         milesCount += this.miles;
+        return milesCount / gallonCount;
     }
 
-    public int getFuelConsumption(){
-        return fuelConsumption;
-    }
-    public int totalFuelConsumption(){
-        return totalConsumption;
-    }
-    public int getTotalNumberOfCount(){
-        return totalNumberOfCount;
-    }
 }

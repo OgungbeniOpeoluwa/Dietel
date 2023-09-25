@@ -24,12 +24,12 @@ public class EncryptedData {
         int container = firstSum;
         int container2 = secondSum;
 
-        int firstNumber = thirdSum;
-        int secondNumber = fourthSum;
+         firstSum = thirdSum;
+        secondSum = fourthSum;
         thirdSum = container;
         fourthSum = container2;
 
-        System.out.printf("%s%d%d%d%d", "Encrypted data is : ",  firstNumber , secondNumber , thirdSum , fourthSum);
+        System.out.printf("%s%d%d%d%d", "Encrypted data is : ",  firstSum , secondSum , thirdSum , fourthSum);
 
 
     }

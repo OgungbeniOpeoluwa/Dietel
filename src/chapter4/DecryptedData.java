@@ -27,8 +27,8 @@ public class DecryptedData {
          int constant = 7;
         int numberOne = constant - firstDigit;
         int numberTwo = constant - secondDigit;
-        int numberThree = constant -  thirdDigit ;
         int numberFour =  constant - fourthDigit;
+        int numberThree = constant -  thirdDigit ;
 
         int totalOne;
         int totalTwo;
