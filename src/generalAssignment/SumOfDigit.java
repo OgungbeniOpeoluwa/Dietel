@@ -18,7 +18,7 @@ public class SumOfDigit {
         long counter = 0;
         int total = 1;
         int counts = lengthOfNumber(userInput);
-        for(int numbers = 1; numbers < counts;numbers++){
+        for(int numbers = 1; numbers < counts-1;numbers++){
             total *= 10;
         }
        int firstDigit = (int) userInput / total;

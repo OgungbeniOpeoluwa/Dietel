@@ -7,14 +7,14 @@ import static org.junit.jupiter.api.Assertions.*;
 class SumOfDigitTest {
     @Test
     public void testLengthOfNumbers(){
-        int result = SumOfDigit.lengthOfNumber(2345667653L);
-        assertEquals(10,result);
+        int result = SumOfDigit.sumOfDigit(234566765L);
+        assertEquals(44,result);
     }
 
     @Test
     public void testTheDifferenceOfNumber(){
-        int result = SumOfDigit.differenceOfDigit(1233);
-        assertEquals(-7,result);
+        int result = SumOfDigit.sumOfDigit(1+2+3+3);
+        assertEquals(9,result);
     }
     @Test
     public void testTheSumOfNumber(){
@@ -23,13 +23,13 @@ class SumOfDigitTest {
     }
     @Test
     public void testMinusOfTwoNumbers(){
-        long result = SumOfDigit.differenceOfDigit(5-4);
-        assertEquals(1,result);
+        long result = SumOfDigit.differenceOfDigit(-234);
+        assertEquals(5,result);
     }
     @Test
     public void testThatSomething(){
-        int result = SumOfDigit.sumOfDigit(-5+4);
-        assertEquals(result, -1);
+        int result = SumOfDigit.sumOfDigit(-21);
+        assertEquals(result, -3);
     }
 
 }
