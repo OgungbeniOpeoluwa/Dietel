@@ -13,7 +13,8 @@ public class ScoresArray {
         int result = scores[0];
         int minimum = scores[0];
         int maximum =scores[0];
-        String  odd = "";
+        int odd = scores[0];
+        String  odds = odd + " ";
         for(int count = 1;count < scores.length;count++){
             System.out.println("Enter your score : ");
             score = scanner.nextInt();
@@ -26,7 +27,7 @@ public class ScoresArray {
                 maximum = scores[count];
             }
             if(scores[count] % 2 ==1){
-               odd += scores[count] + "\t";
+               odds += scores[count] + "\t";
             }
 
         }
@@ -37,6 +38,6 @@ public class ScoresArray {
         System.out.println("the total is :" +result);
         System.out.println("the maximum is :"+maximum);
         System.out.println("the minimum is :"+minimum);
-        System.out.println("the odd numbers are : " +odd);
+        System.out.println("the odd numbers are : " +odds);
     }
 }

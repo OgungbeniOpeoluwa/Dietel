@@ -12,7 +12,7 @@ public class TwoLargest{
         while(sum <= 10) {
             System.out.println("Enter a number : ");
             number = scanner.nextInt();
-            System.out.println(number);
+           // System.out.println(number);
             if (number > largest) {
                 total = largest;
                 largest = number;
