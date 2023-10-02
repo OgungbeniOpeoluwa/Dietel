@@ -6,7 +6,7 @@ public class FunctionArray {
 
 
     public static int largestFunction(int[] number) {
-        int maximum = 0;
+        int maximum = number[0];
         for(int numbs = 0; numbs < number.length;numbs++){
             if(number[numbs] > maximum){
                 maximum = number[numbs];
@@ -15,21 +15,21 @@ public class FunctionArray {
         return  maximum;
     }
 
-    public static int[] reverse(int[] numbers) {
+    public static  int [] reverse(int[] numbers) {
         int [] result = new int[numbers.length];
         int index = 0;
-           for( int number = result.length - 1; number >= 0 ; number --){
-              result[number] = numbers[index];
-              index = index +1;
-           }
+        for( int number = numbers.length - 1; number >= 0 ; number --){
+            result[number] = numbers[index];
+            index = index +1;
+        }
 
         return result;
     }
 
     public static int [] oddPosition(int [] numbers){
-       int [] result = new int[numbers.length];
+        int [] result = new int[numbers.length];
         for(int number = 0; number < numbers.length;number = number + 2){
-             result[number] = numbers [number];
+            result[number] = numbers [number];
         }
         return result;
     }
@@ -64,11 +64,95 @@ public class FunctionArray {
         return result;
 
     }
-    public static String [] [] numbers(String [][] numbs) {
-        String [][] result = new String [numbs.length][numbs.length];
-        for(int numbers = 0; numbers < numbs.length; numbers++){
-            for(int number = 0 ; number < numbs.length; number++){
-                result[numbers][number] = numbs[numbers][numbers];
+    public static String [] cocatinatingInBetween(String [] numbs, String [] word) {
+        int result = numbs. length + word.length;
+        String [] result2 = new String[result];
+        int count = 0;
+        int result3 = 0;
+        int counter = word.length;
+        for(int numbers = 0; numbers < numbs.length; numbers++) {
+            result2[count] = numbs[numbers];
+            count++;
+            result2[count] = word[result3];
+            result3++;
+            counter -= 1;
+            count++;
+        }
+        while (counter != 0){
+            result2[count] = word[result3];
+            result3++;
+            count++;
+            counter-=1;
+        }
+
+
+        return result2;
+    }
+    public static int sumOfNumbers(int [] number){
+        int result = 0;
+        for(int count = 0; count < number.length;count++){
+            result += number[count];
+        }
+        return result;
+    }
+    public static int SumOfNumber2(int [] number){
+        int result = 0;
+        int count = 0;
+        while(count < number.length){
+            result += number[count];
+            count++;
+        }
+        return result;
+    }
+    public static int sumOfDigit3(int [] number){
+
+        int result = 0;
+        int count = 0;
+        do {
+            result += number[count];
+            count ++;
+        }while (count < number.length) ;
+        return result;
+    }
+    public static String []  combinedWord(String []  number,String [] number2) {
+        int result2 = number.length + number2.length ;
+        String[] value = new String[result2];
+        int counts = 0;
+        for (int counter = 0; counter < number.length; counter++ ){
+            value[counts] = number[counter];
+            counts++;
+        }
+        for(int count = 0; count < number2.length;count++){
+            value[counts] = number2[count];
+            counts++;
+        }
+        return value;
+    }
+    public static  int [] digitToList(String numbers){
+        String total = String.valueOf(numbers.length());
+        int result = Integer.parseInt(total);
+        int product = 1;
+        for(int count = 1; count < result ;count ++){
+            product *= 10;
+        }
+        int number = Integer.parseInt(numbers);
+        int firstNumber = number / product;
+        int product2 = product / 10;
+        int count = 0;
+        int [] value = new int[result];
+        value[0] = firstNumber;
+        for(int counter = 1; counter < result;counter ++){
+            count = number / product2 % 10;
+            value[counter] = count;
+            product2 /= 10;
+        }
+        return value;
+    }
+    public static Boolean elementOccurrence(int [] numbers,int number){
+        boolean result = false;
+        for(int count = 0; count < numbers.length;count ++){
+            if(numbers[count] == number){
+                result = true;
             }
         }
         return result;
@@ -80,24 +164,6 @@ public class FunctionArray {
 
 
 
-    public static void main(String[] args){
-       int [] number = {20,10,45,85,5,6,9};
-       int [] number2 = reverse(number);
-        System.out.println(Arrays.toString(number2));
-       int [] result = oddPosition(number);
-        System.out.println(Arrays.toString(result));
-        int [] even = evenPosition(number2);
-        System.out.println(Arrays.toString(even));
-        String [] name = {"l","o","l"} ;
-        String result5 = palindrome(name);
-        System.out.println(result5);
-        int total = runningTotal(number);
-        System.out.println(total);
-        String [] [] number3 = {{"a","b","c"},{"1","2","3"}};
-        String [] []  answer = numbers(number3);
-        System.out.println(Arrays.deepToString(answer));
-
-    }
 
 
 }
