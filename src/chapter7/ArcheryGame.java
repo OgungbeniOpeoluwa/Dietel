@@ -13,7 +13,6 @@ public class ArcheryGame {
         int numbers = 0;
         System.out.println( "players" + " score1" + " score2" + " Score3" + " total");
         int count = 0;
-        int [] array = new int [4];
         int maximum = 0;
         int player = 0;
         int counts = 0;
@@ -32,7 +31,6 @@ public class ArcheryGame {
                         maximum = total;
                         player = count;
                    }
-                   array[number] = total;
                    System.out.print(total);
                    total -= total;
                    System.out.println();
