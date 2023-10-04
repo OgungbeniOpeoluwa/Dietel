@@ -5,14 +5,7 @@ import java.util.Scanner;
 public class Nokia {
     public static void main(String[] args) {
         mainMenu();
-
     }
-
-
-
-
-
-
         public static void mainMenu(){
         Scanner scanner = new Scanner(System.in);
         System.out.println("""

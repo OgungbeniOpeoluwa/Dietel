@@ -1,4 +1,4 @@
-package chibuzorAssignment;
+package practise;
 
 import java.util.Scanner;
 
