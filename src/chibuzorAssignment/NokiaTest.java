@@ -846,10 +846,34 @@ public class NokiaTest {
                 switch (showCall) {
                     case 1:
                         System.out.println("Call Cost Limit");
+                        System.out.println("Press 1 to go back to call register menu or press 0 to exit: ");
+                        int userQ = scanner.nextInt();
+                        while(userQ != 1 && userQ != 0){
+                            System.out.println("Kindly Enter a correct number...Press 1 to go back to call register menu or press 0 to exit: ");
+                            userQ = scanner.nextInt();
+                        }
+                        if(userQ == 1){
+                            callRegister();
+                        }
+                        else{
+                            break;
+                        }
                         break;
 
                     case 2:
                         System.out.println("Show Cost In");
+                        System.out.println("Press 1 to go back to call register menu or press 0 to exit: ");
+                        int user_ = scanner.nextInt();
+                        while(user_ != 1 && user_ != 0){
+                            System.out.println("Kindly Enter a correct number...Press 1 to go back to call register menu or press 0 to exit: ");
+                            user_ = scanner.nextInt();
+                        }
+                        if(user_ == 1){
+                            callRegister();
+                        }
+                        else{
+                            break;
+                        }
                         break;
 
                     case 3:
@@ -868,7 +892,7 @@ public class NokiaTest {
                     userQ = scanner.nextInt();
                 }
                 if(userQ == 1){
-                    chat();
+                    callRegister();
                 }
                 else{
                     break;
@@ -901,38 +925,146 @@ public class NokiaTest {
         switch (tone) {
             case 1:
                 System.out.println("Ringing Tones");
+                System.out.println("Press 1 to go back to  tone menu or press 0 to exit: ");
+                int userQ = scanner.nextInt();
+                while(userQ != 1 && userQ != 0){
+                    System.out.println("Kindly Enter a correct number...Press 1 to go back to  tone  menu or press 0 to exit: ");
+                    userQ = scanner.nextInt();
+                }
+                if(userQ == 1){
+                    tones();
+                }
+                else{
+                    break;
+                }
                 break;
 
             case 2:
                 System.out.println("Ringing Volume");
+                System.out.println("Press 1 to go back to tone menu or press 0 to exit: ");
+                int userS = scanner.nextInt();
+                while(userS != 1 && userS != 0){
+                    System.out.println("Kindly Enter a correct number...Press 1 to go back to tone menu or press 0 to exit: ");
+                    userS = scanner.nextInt();
+                }
+                if(userS == 1){
+                    tones();
+                }
+                else{
+                    break;
+                }
                 break;
 
             case 3:
                 System.out.println("Incoming Call Alert");
+                System.out.println("Press 1 to go back to tone menu or press 0 to exit: ");
+                int userR = scanner.nextInt();
+                while(userR != 1 && userR != 0){
+                    System.out.println("Kindly Enter a correct number...Press 1 to go back to tone menu or press 0 to exit: ");
+                    userR = scanner.nextInt();
+                }
+                if(userR == 1){
+                    tones();
+                }
+                else{
+                    break;
+                }
                 break;
 
             case 4:
                 System.out.println("Composer");
+                System.out.println("Press 1 to go back to tone menu or press 0 to exit: ");
+                int userJ = scanner.nextInt();
+                while(userJ != 1 && userJ != 0){
+                    System.out.println("Kindly Enter a correct number...Press 1 to go back to tone menu or press 0 to exit: ");
+                    userJ = scanner.nextInt();
+                }
+                if(userJ == 1){
+                    tones();
+                }
+                else{
+                    break;
+                }
                 break;
 
             case 5:
                 System.out.println("Message Alert Tone");
+                System.out.println("Press 1 to go back to tone menu or press 0 to exit: ");
+                int userD = scanner.nextInt();
+                while(userD != 1 && userD != 0){
+                    System.out.println("Kindly Enter a correct number...Press 1 to go back to tone menu or press 0 to exit: ");
+                    userD = scanner.nextInt();
+                }
+                if(userD == 1){
+                    tones();
+                }
+                else{
+                    break;
+                }
                 break;
 
             case 6:
                 System.out.println("Keypad Tones");
+                System.out.println("Press 1 to go back to  tones menu or press 0 to exit: ");
+                int userV = scanner.nextInt();
+                while(userV != 1 && userV != 0){
+                    System.out.println("Kindly Enter a correct number...Press 1 to go back to tones menu or press 0 to exit: ");
+                    userV = scanner.nextInt();
+                }
+                if(userV == 1){
+                    tones();
+                }
+                else{
+                    break;
+                }
                 break;
 
             case 7:
                 System.out.println(" Warning and Game Tones");
+                System.out.println("Press 1 to go back to tones menu or press 0 to exit: ");
+                int userF = scanner.nextInt();
+                while(userF != 1 && userF != 0){
+                    System.out.println("Kindly Enter a correct number...Press 1 to go back to tones menu or press 0 to exit: ");
+                    userF = scanner.nextInt();
+                }
+                if(userF == 1){
+                    tones();
+                }
+                else{
+                    break;
+                }
                 break;
 
             case 8:
                 System.out.println("Vibrating Alert");
+                System.out.println("Press 1 to go back to tones menu or press 0 to exit: ");
+                int userY = scanner.nextInt();
+                while(userY != 1 && userY != 0){
+                    System.out.println("Kindly Enter a correct number...Press 1 to go back tone menu or press 0 to exit: ");
+                    userY = scanner.nextInt();
+                }
+                if(userY == 1){
+                    tones();
+                }
+                else{
+                    break;
+                }
                 break;
 
             case 9:
                 System.out.println("Screen Saver");
+                System.out.println("Press 1 to go back to tones menu or press 0 to exit: ");
+                int userP = scanner.nextInt();
+                while(userP != 1 && userP != 0){
+                    System.out.println("Kindly Enter a correct number...Press 1 to go back to tones menu or press 0 to exit: ");
+                    userP = scanner.nextInt();
+                }
+                if(userP == 1){
+                    tones();
+                }
+                else{
+                    break;
+                }
                 break;
 
             case 10:
@@ -1111,7 +1243,20 @@ public class NokiaTest {
         switch (divert) {
             case 1:
                 System.out.println("Call Divert");
+                System.out.println("Press 1 to go back to call divert menu or press 0 to exit: ");
+                int userQ = scanner.nextInt();
+                while(userQ != 1 && userQ != 0){
+                    System.out.println("Kindly Enter a correct number...Press 1 to go back to call divert menu or press 0 to exit: ");
+                    userQ = scanner.nextInt();
+                }
+                if(userQ == 1){
+                    callDivert();
+                }
+                else{
+                    break;
+                }
                 break;
+
 
             case 2:
                 Nokia.mainMenu();
@@ -1137,13 +1282,18 @@ public class NokiaTest {
                 switch (games2) {
                     case 1:
                         guessGame();
-                        System.out.println(" will you like to continue, if yes press 1 , if press 0 to go back:");
+                        System.out.println(" will you like to continue, if yes press 1 , if press 0 to go back or press (-1) to exit:");
                         int number5 = guess.nextInt();
-                        if (number5 == 1){
+                        while(number5 == 1){
                             guessGame();
+                            System.out.println(" will you like to continue, if yes press 1 , if press 0 to go back or press (-1) to exit:");
+                             number5 = guess.nextInt();
                         }
-                        else{
+                        if (number5 == 0){
                             games();
+
+                        } else if (number5 == -1) {
+                            break;
 
                         }
                         break;
@@ -1183,7 +1333,20 @@ public class NokiaTest {
         switch (reminder) {
             case 1:
                 System.out.println("Reminders");
+                System.out.println("Press 1 to go back to reminder menu or press 0 to exit: ");
+                int userQ = scanner.nextInt();
+                while(userQ != 1 && userQ != 0){
+                    System.out.println("Kindly Enter a correct number...Press 1 to go back to reminder menu or press 0 to exit: ");
+                    userQ = scanner.nextInt();
+                }
+                if(userQ == 1){
+                    reminders();
+                }
+                else{
+                    break;
+                }
                 break;
+
 
             case 2:
                 Nokia.mainMenu();
@@ -1241,6 +1404,18 @@ public class NokiaTest {
         switch (profiles) {
             case 1:
                 System.out.println("Profiles");
+                System.out.println("Press 1 to go back to profiles menu or press 0 to exit: ");
+                int userQ = scanner.nextInt();
+                while(userQ != 1 && userQ != 0){
+                    System.out.println("Kindly Enter a correct number...Press 1 to go back to profiles menu or press 0 to exit: ");
+                    userQ = scanner.nextInt();
+                }
+                if(userQ == 1){
+                    profiles();
+                }
+                else{
+                    break;
+                }
                 break;
 
             case 2:
@@ -1258,7 +1433,20 @@ public class NokiaTest {
         switch (service) {
             case 1:
                 System.out.println("SIM Service");
+                System.out.println("Press 1 to go back to sim service menu or press 0 to exit: ");
+                int userQ = scanner.nextInt();
+                while(userQ != 1 && userQ != 0){
+                    System.out.println("Kindly Enter a correct number...Press 1 to go back to sim service menu or press 0 to exit: ");
+                    userQ = scanner.nextInt();
+                }
+                if(userQ == 1){
+                    simServices();
+                }
+                else{
+                    break;
+                }
                 break;
+
 
             case 2:
                 Nokia.mainMenu();

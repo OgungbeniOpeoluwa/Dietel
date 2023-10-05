@@ -36,6 +36,7 @@ public class DecryptedData {
         int totalFour;
         if(numberOne < 0){
             totalOne = firstDigit;
+            totalOne-=constant;
         }
         else {
             totalOne = firstDigit + 10;
@@ -44,6 +45,7 @@ public class DecryptedData {
 
         if(numberTwo < 0){
             totalTwo = secondDigit;
+            totalTwo-=constant;
         }
         else{
             totalTwo = secondDigit + 10 ;
@@ -51,15 +53,16 @@ public class DecryptedData {
         }
         if(numberThree < 0){
             totalThree = thirdDigit;
+            totalThree-=constant;
         }
         else{
             totalThree = thirdDigit + 10;
             totalThree -= constant;
-
         }
 
         if(numberFour < 0){
             totalFour = fourthDigit;
+            totalFour-=constant;
         }
         else{
             totalFour = fourthDigit + 10;
