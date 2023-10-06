@@ -8,18 +8,16 @@ public class DiceRolling {
         int [] [] dice = new int [6] [6];
         Random random = new Random();
         int total = 0;
-        for(int count  = 1; count < 36000000 ; count++){
-            int firstDie = random.nextInt(1,6);
-            int secondDie = random.nextInt(1,6);
-            total = firstDie + secondDie;
-            for(int number = 0;number < 6;number++){
-                dice[number][number] = total;
-                System.out.println(Arrays.deepToString(dice));
-
-
+        for(int count  = 0; count < dice.length ; count++){
+            for(int number = 0;number < dice.length ;number++) {
+                int firstDie = random.nextInt(1, 6);
+                int secondDie = random.nextInt(1, 6);
+                total = firstDie + secondDie;
+                System.out.print(total + "  "  );
             }
-
+            System.out.println();
         }
+
 
     }
 }
