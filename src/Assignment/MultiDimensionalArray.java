@@ -1,4 +1,4 @@
-package generalAssignment;
+package Assignment;
 
 import java.util.Arrays;
 import java.util.Scanner;
@@ -44,5 +44,13 @@ public class MultiDimensionalArray {
             }
         return dataSet;
     }
+   public static int [] extractColoumns(int [][] numbers,int start ,int stop) {
+        int [] data = new int[stop];
+        for(int count = 0;count < stop;count++){
+            data[count] = numbers[count][start];
+        }
+        return data;
+
+   }
 
 }
