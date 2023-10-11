@@ -26,7 +26,6 @@ public class EnhancedGradeBook {
                 System.out.println("Enter student " + (number +1) + " " + "score" + (count + 1));
                 int input = scanner.nextInt();
                 array[number][count] = input;
-
             }
         }
         return array;

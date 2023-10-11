@@ -12,20 +12,15 @@ public class Polling {
         int dataInsecurity = 0;
         int gunControl = 0;
         int counts = 0;
-        String[] socialIssues = {"LGBTQ RIGHT", "MENTAL HEALTH", "HEALTHCARE ACCESS", "DATA INSECURITY", "GUN CONTROL"};
+        String[] socialIssues = {"LGBTQ RIGHT", "MENTAL HEALTH", "HEALTHCARE", "DATA INSECURITY", "GUN CONTROL"};
         int[][] response = new int[5][10];
         System.out.println("Kindly enter your rate on this issues where 1 is the least and 10 is the most important");
         int stoper = 1;
         while (stoper != 0) {
             for (int number = 0; number < socialIssues.length; number++) {
                 System.out.println(socialIssues[number]);
-                String input = scanner.nextLine();
-                int userInput = Integer.parseInt(input);
-                while(userInput < 1 || userInput > 10){
-                    System.out.println("Kindly enter a valid number between 1 - 10,where 1 is the least and 10 is the most important: ");
-                    input = scanner.nextLine();
-                    userInput = Integer.parseInt(input);
-                }
+                int userInput = scanner.nextInt();
+
                 switch(number){
                     case 0 -> {
                         lgbtq += userInput;
@@ -65,8 +60,8 @@ public class Polling {
         String min = " ";
         int maximum = result[0];
         int mininimum = result[0];
-        System.out.println("SOCIAL ISSUES " + " 1" + " 2 "
-                          + " 3 " + " 4 " + " 5 " + " 6 " + " 7 " + " 8 " + " 9 " + " 10 ");
+        System.out.println("SOCIAL ISSUES" + "  1\t" + " 2\t"
+                          + " 3\t" + " 4\t " + " 5\t " + " 6\t" + " 7\t" + " 8\t" + " 9\t " + "10\t" + " Average");
         for (int counter = 0; counter < socialIssues.length; counter++) {
             System.out.print(socialIssues[counter] + "   ");
             for (int numb = 0; numb < 10; numb++) {
@@ -74,14 +69,14 @@ public class Polling {
                 if(inputss > 0) {
                     results +=inputss;
                 }
-              System.out.print(inputss +  "   " + "  " + " ");
+              System.out.print(" " + inputss + "\t");
             }
             System.out.print(result[counter]/results);
             if(result[counter] > maximum){
                 maximum = result[counter];
                 max = socialIssues[counter];
             }
-            if(result[counter] < mininimum){
+            else if(result[counter] < mininimum){
                 mininimum = result[counter];
                 min = socialIssues[counter];
             }
