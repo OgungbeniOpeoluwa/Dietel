@@ -1,6 +1,7 @@
 package Assignment;
 
 import java.util.Arrays;
+import java.util.Scanner;
 
 public class ExtractColoumn {
     public static void main(String[] args) {
@@ -8,6 +9,7 @@ public class ExtractColoumn {
         int[] numb = new int[data.length];
         int[] result = MultiDimensionalArray.extractColoumns(data, 2, 3);
         System.out.println(Arrays.toString(result));
+
 
 
     }

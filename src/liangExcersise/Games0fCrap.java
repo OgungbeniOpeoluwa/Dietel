@@ -10,7 +10,7 @@ public class Games0fCrap {
         int continues = scanner.nextInt();
         while (continues != 0) {
             gamesOfCrap();
-            System.out.println("I HOPE YOU HAD FUN...WILL LIKE TO TRY AGAIN ?? PRESS (1) ,ELSE PRESS(0)");
+            System.out.println("I HOPE YOU HAD FUN...WILL You LIKE TO TRY AGAIN ?? PRESS (1) ,ELSE PRESS(0)");
             continues = scanner.nextInt();
 
         }
