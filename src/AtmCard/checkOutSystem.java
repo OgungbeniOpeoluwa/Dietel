@@ -6,7 +6,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class checkOutSystem {
+public class  checkOutSystem {
     public static void main(String[] args) {
         final double tax = 0.175;
         LocalDateTime date = LocalDateTime.now();

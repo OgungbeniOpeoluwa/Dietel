@@ -1,2 +1,4 @@
-package practise;public class MbitPersonality {
+package practise;
+
+public class MbitPersonality {
 }
