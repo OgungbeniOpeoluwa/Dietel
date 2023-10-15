@@ -51,7 +51,7 @@ public class Polling {
                 }
                 response[number][counts] += 1;
             }
-            System.out.println("Will you like  ");
+            System.out.println("if you  will like to continue press(1) else press(0)  ");
             stoper = scanner.nextInt();
         }
         int inputss;

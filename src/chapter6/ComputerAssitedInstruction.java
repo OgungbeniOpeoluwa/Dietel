@@ -37,11 +37,20 @@ public class ComputerAssitedInstruction {
                     System.out.println("How much is " + result + " times " + result2);
                     input = scanner.nextInt();
                     product = multiplication(result, result2);
+                    if (product == input) {
+                        System.out.println("Very good");
+                    }
                 }
             }
         System.out.println("yes to continue,else(no)");
         stoper = scanner.next();
     }
+    }
+    public static  void generateNumbers(){
+        firstNumbers();
+        secondNumber();
+        System.out.println("How much is " + firstNumbers() + " times " + secondNumber());
+
     }
 
 
