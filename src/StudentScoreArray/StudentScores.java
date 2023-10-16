@@ -59,10 +59,7 @@ public class StudentScores {
             }
             System.out.println(total[counts] + "    " + average[counts] + "     " + position[counts]);
         }
- //       int [] position = sort(total);
-//        for(int number = 0;number < total.length;number++){
-//            System.out.println(position[number]);
-//        }
+
 
         System.out.println("""
                 ======================================================
