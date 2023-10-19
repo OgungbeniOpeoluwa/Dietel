@@ -22,7 +22,6 @@ public class StudentScores {
     public static void studentScores(int[][] students, int subjects, int numberOfStudents) {
         Scanner scanner = new Scanner(System.in);
         int[] total = new int[students.length];
-
         String[] allSubjects = subjectName(subjects);
         double[] average = new double[students.length];
         double result = 0;
@@ -108,6 +107,7 @@ public class StudentScores {
             average = (double) total / scores.length;
             displayMax(result);
             displayMin(result);
+
             System.out.println("Total score : " + total);
             System.out.println("Average score is : " + average);
             System.out.println("number of passes : " + max[counts]);

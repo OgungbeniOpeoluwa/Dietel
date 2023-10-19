@@ -8,7 +8,7 @@ public class Sorted {
         if (answer) {
             answer = true;
         }
-        return true;
+        return answer ;
 
 
     }
