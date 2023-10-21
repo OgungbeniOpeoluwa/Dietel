@@ -534,7 +534,6 @@ public class MbitPersonality {
                             struggle to turn their grand visions into reality.
                           * Prone to Burnout – Advocates’ perfectionism and reserve leave them with few options for letting off steam. People with this personality 
                             type can exhaust themselves if they don’t balance their drive to help others with necessary self-care and rest.
-                            CONCLUSION
                             """);
             case "INFP" -> System.out.println("""
                     INFP

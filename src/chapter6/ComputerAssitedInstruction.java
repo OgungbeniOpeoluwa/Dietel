@@ -9,22 +9,25 @@ public class ComputerAssitedInstruction {
 
     }
 
-    public static int multiplication(int number,int numberTwo){
+    public static int multiplication(int number, int numberTwo) {
         return number * numberTwo;
     }
-    public static int firstNumbers(){
+
+    public static int firstNumbers() {
         SecureRandom random = new SecureRandom();
-        return random.nextInt(1,10);
+        return random.nextInt(1, 10);
     }
-    public static int secondNumber(){
+
+    public static int secondNumber() {
         SecureRandom random = new SecureRandom();
-        return random.nextInt(1,10);
+        return random.nextInt(1, 10);
     }
-    public static void corrrectAnswer(){
+
+    public static void corrrectAnswer() {
         SecureRandom random = new SecureRandom();
-        int answer = random.nextInt(1,5);
+        int answer = random.nextInt(1, 5);
         switch (answer) {
-            case 1 ->System.out.println("Very good!");
+            case 1 -> System.out.println("Very good!");
 
             case 2 -> System.out.println("Excellent!");
 
@@ -34,6 +37,7 @@ public class ComputerAssitedInstruction {
 
         }
     }
+
     public static void inCorrrectAnswer() {
         SecureRandom random = new SecureRandom();
         int answer = random.nextInt(1, 5);
@@ -49,58 +53,55 @@ public class ComputerAssitedInstruction {
         }
     }
 
-    public static void randomNumbers(){
+    public static void randomNumbers() {
         Scanner scanner = new Scanner(System.in);
         String stoper = "yes";
         int number = 0;
-        int correctAnswer = 0;
         int inCorrectAnswer = 0;
-        while (number != 10 ) {
-            int  result = firstNumbers();
+        while (number < 10) {
+            int result = firstNumbers();
             int result2 = secondNumber();
             System.out.println("How much is " + result + " times " + result2);
             int input = scanner.nextInt();
             int product = multiplication(result, result2);
             if (product == input) {
                 corrrectAnswer();
-                correctAnswer +=10;
+                //  correctAnswer +=10;
 
             } else {
-                if(input != product){
-                    inCorrectAnswer += 10;
-                    System.out.println(inCorrectAnswer);
-                }
-                while (input != product) {
-                    inCorrrectAnswer();
-                    System.out.println("How much is " + result + " times " + result2);
-                    input = scanner.nextInt();
-                    product = multiplication(result, result2);
-                    if (product == input) {
-                        corrrectAnswer();
-                        correctAnswer +=10;
-                    }
+                inCorrectAnswer += 10;
+            System.out.println(inCorrectAnswer);
+            }
+            while (input != product) {
+                inCorrrectAnswer();
+                System.out.println("How much is " + result + " times " + result2);
+                input = scanner.nextInt();
+                product = multiplication(result, result2);
+                if (product == input) {
+                    corrrectAnswer();
                 }
             }
             number++;
-            if(number == 10) {
-                if(correctAnswer > 70){
+            if (number == 10) {
+                if (inCorrectAnswer > 70) {
+                    System.out.println("Your overall mark is low Please ask your teacher for extra help.");
+
+                } else {
                     System.out.println("Congratulations, you are ready to go to the next level!");
-                }
-                else{
-                    System.out.println("Please ask your teacher for extra help.");
                 }
                 System.out.println("yes to continue,else(no)");
                 stoper = scanner.next();
                 if (stoper.equals("yes")) {
-                    number++;
+                    number = 0;
                 } else {
                     break;
                 }
             }
-
-    }
+        }
     }
 }
+
+
 
 
 
