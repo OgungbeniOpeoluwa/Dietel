@@ -1,4 +1,4 @@
-package Assignment;
+package StudentScoreArray;
 
 import java.util.Arrays;
 import java.util.Scanner;

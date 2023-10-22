@@ -12,8 +12,8 @@ class DecimalToBinaryTest {
     }
     @Test
     public void testChangingNumberFromBinaryToDecimal(){
-        String number = "100";
-        assertEquals(4,DecimalToBinary.binaryToDecimal(number));
+        String number = "10000";
+        assertEquals(16,DecimalToBinary.binaryToDecimal(number));
     }
 
 }
