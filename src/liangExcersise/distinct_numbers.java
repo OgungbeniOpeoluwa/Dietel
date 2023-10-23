@@ -10,18 +10,19 @@ public class distinct_numbers {
         int [] a = new int[10];
         System.out.println("Enter 10 digit numbers: ");
         for(int count = 0;count <array.length;count++){
-            array[count] = scanner.nextInt();
-        }
-        for(int n =0; n < array.length;n++){
-            for(int m = n+1;m <array.length;m ++){
-                if(array[n] == array[m]){
-                    a[n] ++;
+            int input = scanner.nextInt();
+            array[count] = input;
+            for(int n =0; n < array.length;n++){
+                if(array[n] == input ){
+                    input = 0;
                 }
-                //a[n] = array[n];
+                    a[count] = input;
+
             }
 
         }
         System.out.println(Arrays.toString(a));
+        System.out.println(Arrays.toString(array));
 
     }
 }

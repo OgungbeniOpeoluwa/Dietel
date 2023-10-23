@@ -7,13 +7,13 @@ import static org.junit.jupiter.api.Assertions.*;
 class DecimalToBinaryTest {
     @Test
     public void testDecimalNumberToBinary(){
-        int number = 34;
-        assertEquals("100010",DecimalToBinary.decimalNumber(number));
+        int number = 5;
+        assertEquals("101",DecimalToBinary.decimalNumber(number));
     }
     @Test
     public void testChangingNumberFromBinaryToDecimal(){
-        String number = "10000";
-        assertEquals(16,DecimalToBinary.binaryToDecimal(number));
+        String number = "1111";
+        assertEquals(15,DecimalToBinary.binaryToDecimal(number));
     }
 
 }

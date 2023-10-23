@@ -56,9 +56,7 @@ public class ComputerAssitedInstruction {
     public static void randomNumbers() {
         Scanner scanner = new Scanner(System.in);
         String stoper = "yes";
-        int number = 0;
-        int inCorrectAnswer = 0;
-        while (number < 10) {
+        while (stoper.equals("yes")) {
             int result = firstNumbers();
             int result2 = secondNumber();
             System.out.println("How much is " + result + " times " + result2);
@@ -66,11 +64,7 @@ public class ComputerAssitedInstruction {
             int product = multiplication(result, result2);
             if (product == input) {
                 corrrectAnswer();
-                //  correctAnswer +=10;
 
-            } else {
-                inCorrectAnswer += 10;
-            System.out.println(inCorrectAnswer);
             }
             while (input != product) {
                 inCorrrectAnswer();
@@ -81,22 +75,9 @@ public class ComputerAssitedInstruction {
                     corrrectAnswer();
                 }
             }
-            number++;
-            if (number == 10) {
-                if (inCorrectAnswer > 70) {
-                    System.out.println("Your overall mark is low Please ask your teacher for extra help.");
-
-                } else {
-                    System.out.println("Congratulations, you are ready to go to the next level!");
-                }
                 System.out.println("yes to continue,else(no)");
                 stoper = scanner.next();
-                if (stoper.equals("yes")) {
-                    number = 0;
-                } else {
-                    break;
-                }
-            }
+
         }
     }
 }

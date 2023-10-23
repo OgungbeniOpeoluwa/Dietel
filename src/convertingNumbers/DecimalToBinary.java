@@ -6,35 +6,17 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 public class DecimalToBinary {
-    public static void main(String[] args) {
-        String[] array = {"A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"};
-        String[] encrypt = new String[array.length];
-        int start = 5;
-        int count = 0;
-        for (int numb = start; numb < array.length; numb++) {
-            encrypt[numb] = array[count];
-            count++;
-        }
-        int result = array.length - start;
-            for (int numb = 0; numb < start; numb++) {
-                encrypt[numb] =  array[result];
-                result++;
-            }
-        System.out.println(Arrays.toString(encrypt));
-
-
-    }
     public static  int binaryToDecimal(String number){
         final int base = 2;
         char result = number.charAt(0);
         int total = Integer.parseInt(String.valueOf(result)) * base;
-        for(int count = 1;count < number.length()-1;count++){
+        for(int count = 1;count < number.length();count++){
             result = number.charAt(count);
             int numb = Integer.parseInt(String.valueOf(result));
             total += numb;
             total *= base;
         }
-        return total;
+        return total/2;
     }
 
 
