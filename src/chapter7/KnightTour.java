@@ -1,6 +1,4 @@
 package chapter7;
-
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class KnightTour {
@@ -32,13 +30,11 @@ public class KnightTour {
             currentColoumn += horizontalMoves(input);
             square[currentRow][currentColoumn] = counts;
             loop(square);
-
         }
     }
     public static int collectInput(){
         Scanner scanner = new Scanner(System.in);
         return scanner.nextInt();
-
     }
     public static int  horizontalMoves(int input){
         int [] horizontal = {2,1,-1,-2,-2,-1,1,2};
