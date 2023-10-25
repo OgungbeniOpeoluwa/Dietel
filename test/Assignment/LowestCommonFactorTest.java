@@ -8,7 +8,7 @@ class LowestCommonFactorTest {
     @Test
     public void testArrayOfLowestCommonFactor(){
         int [] array = {2,3};
-        assertArrayEquals(array,LowestCommonFactor.result(12,36));
+        assertArrayEquals(array,LowestCommonFactor.result(8,36));
     }
 
 
