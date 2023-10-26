@@ -9,18 +9,23 @@ public class CoinToss {
     static int tail = 2;
     static  int count = 0;
     static int counter = 0;
-    private  enum coinEnum {HEAD,TAIL}
+    private  enum  coinEnum {HEAD,TAIL}
     static SecureRandom random = new SecureRandom();
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Press 1 to toss a coin or enter 0 to stop");
         int input = scanner.nextInt();
+        coinEnum toss;
         while(input == 1) {
            int result = coinToss();
             if (result == head) {
                 count++;
+                toss = coinEnum.HEAD;
+                System.out.println(toss);
             } else {
+                toss = coinEnum.TAIL;
+                System.out.println(toss);
                 counter++;
             }
             System.out.println("Press 1 to toss a coin or enter 0 to stop");

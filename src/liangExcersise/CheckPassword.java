@@ -5,8 +5,7 @@ public class CheckPassword {
     public static boolean passwordValidity(String words) {
         String word = words.toLowerCase();
         int result = check(word);
-        boolean answer = false;
-        if(results) {
+        boolean answer = false;{
             if (result >= 2 && word.length() >= 8) {
                 answer = true;
             }
