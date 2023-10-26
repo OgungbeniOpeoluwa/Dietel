@@ -4,6 +4,7 @@ import java.security.SecureRandom;
 import java.util.Scanner;
 
 public class ArithmeticFunctions {
+
     public static void main(String[] args) {
         displayArithmetic();
 
