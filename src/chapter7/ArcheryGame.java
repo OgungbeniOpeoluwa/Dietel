@@ -34,21 +34,12 @@ public class ArcheryGame {
                    System.out.print(total);
                    total -= total;
                    System.out.println();
-
                 }
-
                 System.out.println("CONGRATULATION THE WINNER OF THIS SECTION IS PLAYER" + player + "  " + maximum);
                 System.out.println("will you like to continue playing if yes enter (1),else enter (0)");
                 stopper= scanner.nextInt();
             }
-
-
-
     }
-
-
-
-
         }
 
 
