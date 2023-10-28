@@ -6,8 +6,8 @@ public class KnightTour {
         displayKnightTour();
     }
 
-    static int currentRow = 7;
-    static int currentColoumn = 1;
+    static int currentRow = 3;
+    static int currentColoumn = 4;
     static int[][] square = new int[8][8];
 
 
