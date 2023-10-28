@@ -8,19 +8,19 @@ public class ExceptionHandling {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter your pin");
         String input = scanner.next();
-        bank.setBalance(input);
-        String inputs = "";
+        bank.setPassword(input);
+        boolean result;
         do {
             try {
-                System.out.println("confirm your pin");
-                 inputs = scanner.next();
-                System.out.println(bank.getBalance(inputs));
+                  System.out.println("confirm your pin");
+                  String inputs = scanner.next();
+                  System.out.println(bank.getBalance(inputs));
+                  result = false;
             } catch (IllegalArgumentException see) {
-                System.out.println(see.getMessage());
-                System.out.println("enter valid pin");
-                 inputs = scanner.next();
+                 System.out.println(see.getMessage());
+                 result = true;
             }
-        }while (!input.equalsIgnoreCase(inputs)) ;
+        }while (result) ;
 
 
 
@@ -30,7 +30,7 @@ public class ExceptionHandling {
     private int balance = 1000;
     private String password;
 
-    public void setBalance(String password) {
+    public void setPassword(String password) {
         this.password = password;
 
 
