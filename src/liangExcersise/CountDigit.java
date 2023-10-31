@@ -3,9 +3,6 @@ package liangExcersise;
 import java.security.SecureRandom;
 
 public class CountDigit {
-    public static void main(String[] args) {
-        displayCount();
-    }
     static SecureRandom random  = new SecureRandom();
 
     public static int [] array(){

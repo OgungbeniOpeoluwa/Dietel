@@ -4,15 +4,9 @@ import java.security.SecureRandom;
 import java.util.Scanner;
 
 public class ArithmeticFunctions {
-
-    public static void main(String[] args) {
-        displayArithmetic();
-
-    }
-
     public static void displayArithmetic(){
         Scanner scanner = new Scanner(System.in);
-            System.out.println("""
+        System.out.println("""
                          pick which Arithmetic to work :
                          1. ADDITION
                          2. SUBTRACTION
@@ -21,8 +15,8 @@ public class ArithmeticFunctions {
                          5. RANDOM ARITHMETICS OPTIONS
                          6. enter "no" to stop
                          """);
-           int numb = scanner.nextInt();
-           arithmetic(numb);
+        int numb = scanner.nextInt();
+        arithmetic(numb);
 
     }
 

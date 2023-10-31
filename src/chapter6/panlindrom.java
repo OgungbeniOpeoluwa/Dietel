@@ -3,16 +3,6 @@ package chapter6;
 import java.util.Scanner;
 
 public class panlindrom {
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Enter a number :");
-        String userInput = scanner.nextLine();
-        System.out.println(isPanidrome(userInput));
-
-
-    }
-
-
 
     public static String isPanidrome(String number){
         String answer = "";

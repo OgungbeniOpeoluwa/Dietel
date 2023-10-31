@@ -105,11 +105,7 @@ public class GameCrapModification {
         }
     }
 
-    public static void main(String[] args) {
-        System.out.println("Enter a Wager");
-        int wager = scanner.nextInt();
-        displayResult(wager);
-    }
+
 
     }
 

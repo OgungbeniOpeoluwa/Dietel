@@ -3,11 +3,6 @@ package liangExcersise;
 import java.util.Scanner;
 
 public class GuessCapital {
-    public static void main(String[] args) {
-        int result = displayQuestion();
-        System.out.println("Total number of correct count is : " + result);
-    }
-
     static String[][] states = {{"Alabama", "Montgomery"}, {"Alaska", "Juneau"}, {"California", "Sacramento",},
             {"Florida", "Tallahassee"}, {"Arkansas", "Little Rock"}, {"California", "Sacramento"}, {"Pennsylvania", "Harrisburg"},
             {"SouthCarolina", "Columbia"}, {"Oregon", "Salem"}, {"Texas", "Austin"}, {"NewYork", "Albany"},

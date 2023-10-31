@@ -1,6 +1,6 @@
 package chapter6;
 
-public class HypothenuseTriangle {
+public class  HypothenuseTriangle {
 
     public static double hypotenuseCalculations(double firstNumber, double secondNumber) {
         double result = Math.pow(firstNumber,2);
