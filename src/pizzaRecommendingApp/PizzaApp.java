@@ -1,74 +1,23 @@
 package pizzaRecommendingApp;
 
-import java.util.Scanner;
-
 public class PizzaApp {
-
-    public int setSlice(String slices){
-        String size = slices.toUpperCase();
-        int slice;
-        switch(size){
-            case "BIG" -> slice = 10;
-            case "MEDIUM" -> slice = 6;
-            case "SMALL" -> slice = 4;
-            default -> throw new IllegalArgumentException("Invalid input");
-        }
-        return slice;
-    }
-
-    public int setPrice(String size){
-        String sizes = size.toUpperCase();
-        int price;
-        switch(sizes){
-            case "BIG" -> price = 5000;
-             case "MEDIUM" -> price = 4000;
-            case "SMALL" -> price = 1200;
-            default -> throw new IllegalArgumentException("Invalid Input");
-        }
-        return price;
-    }
-    public int getSlice(String slice){
-        return setSlice(slice);
-    }
-    public  int getPrice(String price){
-        return setPrice(price);
-    }
+    private int total;
 
 
-    public int setOfPeople(String typeOfPeople) {
-        String typeOfPeopleAvailable = typeOfPeople.toUpperCase();
-        int stomachSize;
-        switch (typeOfPeopleAvailable){
-            case "HUNGRY" -> stomachSize = 2;
-            case "SUPER HUNGRY" -> stomachSize = 4;
-            case  "CLASSIC" -> stomachSize = 1;
-            default -> throw new IllegalArgumentException("Invalid Input");
-        }
-        return stomachSize;
-    }
-    public  int getStomachSize(String typeOfPeople){
-        return setOfPeople(typeOfPeople);
-    }
-    public int getNumberOfPeopleSlice(int numberOfPeople ,String typeOfPeople){
-        return  getStomachSize(typeOfPeople) * numberOfPeople;
+
+    public int getNumberOfPeopleSlice(String numberOfPeople ,SetOfAvailableStomachSlice typeOfPeople){
+        return  total += typeOfPeople.getSliceConsume() *Integer.parseInt( numberOfPeople);
     }
 
-    public int getTotalNumberOfSlice(String [][] typeOfPeople) {
-        int total = 0;
-        for(int count = 0;count < typeOfPeople.length;count++){
-            String type = typeOfPeople[count][0];
-            int numberOfSlices = Integer.parseInt(typeOfPeople[count][1]);
-               total += getNumberOfPeopleSlice(numberOfSlices,type);
-        }
-
-        return total;
+    public int getTotal(){
+         return total;
     }
-
-    public int getTotalNumberOfBoxes(String typeOfBox, String[][] typeOfPeople) {
-        int total = getTotalNumberOfSlice(typeOfPeople);
-        int slice = getSlice(typeOfBox);
-        int result  = 0;
-        if(total % slice != 0){
+    public int getTotalNumberOfBoxes(String typeOfBox,int results) {
+        results = getTotal();
+        PizzaAppConstant pizzas = PizzaAppConstant.valueOf(typeOfBox.toUpperCase());
+        int slice = pizzas.getSlice();
+        int result;
+        if(results % slice != 0){
             int number = total / slice;
             result = number + 1;
         }
@@ -78,17 +27,21 @@ public class PizzaApp {
         return result;
     }
 
-    public int getNumberOfSlicesRemain(String typeOfBox, String[][] typeOfPeople) {
-        int numberOfBoxes = getTotalNumberOfBoxes(typeOfBox, typeOfPeople);
-        int totalNumberOfSlice = getTotalNumberOfSlice(typeOfPeople);
-        int actualSlice = getSlice(typeOfBox);
+
+
+    public int getNumberOfSlicesRemain(String typeOfBox) {
+        PizzaAppConstant boxSize = PizzaAppConstant.valueOf(typeOfBox.toUpperCase());
+        int numberOfBoxes = getTotalNumberOfBoxes(typeOfBox,getTotal());
+        int actualSlice = boxSize.getSlice();
         int result = numberOfBoxes * actualSlice;
-        return result - totalNumberOfSlice;
+        return result - total;
     }
 
-    public int getTotalPriceOfOrder(String typeOfBox, String[][] typeOfPeople) {
-        int numberOfBoxes = getTotalNumberOfBoxes(typeOfBox,typeOfPeople);
-        return getPrice(typeOfBox)*numberOfBoxes;
+
+
+    public int getTotalPriceOfOrder(String typeOfBox) {
+        PizzaAppConstant price = PizzaAppConstant.valueOf(typeOfBox.toUpperCase());;
+        return price.getPrice() * getTotalNumberOfBoxes(typeOfBox,getTotal());
     }
 
 }

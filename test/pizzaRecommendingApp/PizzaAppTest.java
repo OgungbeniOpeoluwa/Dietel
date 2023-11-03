@@ -7,96 +7,112 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class PizzaAppTest {
     PizzaApp pizzaApp;
+    PizzaAppConstant pizza;
+    SetOfAvailableStomachSlice slice;
     @BeforeEach
         public void setUp(){
         pizzaApp = new PizzaApp();
+
     }
 
     @Test
     public void testAppSliceOfPizza(){
-        assertEquals(10,pizzaApp.getSlice("Big"));
+        pizza = PizzaAppConstant.BIG;
+        assertEquals(10,pizza.getSlice());
     }
 
 
     @Test
     public void testAppAvailability(){
-        assertEquals(6,pizzaApp.getSlice("Medium"));
+        pizza = PizzaAppConstant.MEDIUM;
+        assertEquals(6,pizza.getSlice());
     }
     @Test
-    public void testForPriceOfPizza(){
-        assertEquals(1200,pizzaApp.getPrice("small"));
+    public void testForSliceOfPizza(){
+        pizza = PizzaAppConstant.SMALL;
+        assertEquals(4,pizza.getSlice());
+    }
+    @Test
+    public void getPriceOfBigPizza(){
+        pizza = PizzaAppConstant.BIG;
+        assertEquals(5000,pizza.getPrice());
     }
     @Test
     public void orderForPizza(){
-        String  typeOfPeople = "Hungry";
-        int  numberOfPeople = 2;
-        int expected = 4;
-        assertEquals(expected,pizzaApp.getNumberOfPeopleSlice(numberOfPeople,typeOfPeople));
+        slice = SetOfAvailableStomachSlice.HUNGRY;
+        pizzaApp.getNumberOfPeopleSlice("10",slice);
+        slice = SetOfAvailableStomachSlice.CLASSIC;
+        pizzaApp.getNumberOfPeopleSlice("10",slice);
+        int expected = 30;
+        assertEquals(expected,pizzaApp.getTotal());
     }
     @Test
     public void numberOfSliceForTwoPeople(){
-        String [][] typeOfPeople = {{"Hungry","2"},{"Super hungry","3"}};
-        int expected = 16;
-        assertEquals(expected,pizzaApp.getTotalNumberOfSlice(typeOfPeople));
+       slice = SetOfAvailableStomachSlice.HUNGRY;
+       String numberOfPeople = "5";
+        int expected = 10;
+        assertEquals(expected,pizzaApp.getNumberOfPeopleSlice(numberOfPeople,slice));
 
     }
+
 
     @Test
     public void numberOfSliceForThreePeople(){
-        String [][] typeOfPeople = {{"Hungry","2"},{"Super hungry","3"},{"Classic","10"}};
-        int expected = 26;
-        assertEquals(expected,pizzaApp.getTotalNumberOfSlice(typeOfPeople));
+        slice = SetOfAvailableStomachSlice.SUPPERHUNGRY;
+         pizzaApp.getNumberOfPeopleSlice("4",slice);
+        slice = SetOfAvailableStomachSlice.CLASSIC;
+         pizzaApp.getNumberOfPeopleSlice("5",slice);
+         slice = SetOfAvailableStomachSlice.HUNGRY;
+         pizzaApp.getNumberOfPeopleSlice("3",slice);
+         int expected = 27;
+         assertEquals(expected,pizzaApp.getTotal());
 
     }
 
-    @Test
-    public void numberOfSliceForOnePerson(){
-        String [][] typeOfPeople = {{"Classic","10"}};
-        int expected = 10;
-        assertEquals(expected,pizzaApp.getTotalNumberOfSlice(typeOfPeople));
-
-    }
     @Test
     public void testForNumberOfBoxNeeded() {
-        String typeOfBox = "Big";
-        String [][] typeOfPeople = {{"Hungry","10"},{"Super hungry","10"},{"Classic","5"}};
+        slice = SetOfAvailableStomachSlice.SUPPERHUNGRY;
+        pizzaApp.getNumberOfPeopleSlice("10",slice);
+        slice = SetOfAvailableStomachSlice.CLASSIC;
+        pizzaApp.getNumberOfPeopleSlice("5",slice);
+        slice = SetOfAvailableStomachSlice.HUNGRY;
+        pizzaApp.getNumberOfPeopleSlice("10",slice);
+        String size = "BIG";
         int expected = 7;
-        assertEquals(expected,pizzaApp.getTotalNumberOfBoxes(typeOfBox,typeOfPeople));
+        assertEquals(expected,pizzaApp.getTotalNumberOfBoxes(size,pizzaApp.getTotal()));
 
     }
-    @Test
-    public void testForNumberOfBoxNeededForAnotherSize() {
-        String typeOfBox = "small";
-        String [][] typeOfPeople = {{"Hungry","5"},{"Classic","6"}};
-        int expected = 4;
-        assertEquals(expected,pizzaApp.getTotalNumberOfBoxes(typeOfBox,typeOfPeople));
 
-    }
     @Test
-    public void testForRemainingSliceAfterGivenNumberOfBoxes() {
-        String typeOfBox = "Big";
-        String [][] typeOfPeople = {{"Hungry","10"},{"Super hungry","10"},{"Classic","5"}};
+    public void testForNumberOfSliceRemaining() {
+        slice = SetOfAvailableStomachSlice.SUPPERHUNGRY;
+        pizzaApp.getNumberOfPeopleSlice("10",slice);
+        slice = SetOfAvailableStomachSlice.CLASSIC;
+        pizzaApp.getNumberOfPeopleSlice("5",slice);
+        slice = SetOfAvailableStomachSlice.HUNGRY;
+        pizzaApp.getNumberOfPeopleSlice("10",slice);
+        String size = "BIG";
         int expected = 5;
-        assertEquals(expected,pizzaApp.getNumberOfSlicesRemain(typeOfBox,typeOfPeople));
+        assertEquals(expected,pizzaApp.getNumberOfSlicesRemain(size));
 
     }
 
     @Test
-    public void testForPriceOfOrder() {
-        String typeOfBox = "Big";
-        String [][] typeOfPeople = {{"Hungry","10"},{"Super hungry","10"},{"Classic","5"}};
+    public void testForPrice() {
+        slice = SetOfAvailableStomachSlice.SUPPERHUNGRY;
+        pizzaApp.getNumberOfPeopleSlice("10",slice);
+        slice = SetOfAvailableStomachSlice.CLASSIC;
+        pizzaApp.getNumberOfPeopleSlice("5",slice);
+        slice = SetOfAvailableStomachSlice.HUNGRY;
+        pizzaApp.getNumberOfPeopleSlice("10",slice);
+        String size = "BIG";
         int expected = 35000;
-        assertEquals(expected,pizzaApp.getTotalPriceOfOrder(typeOfBox,typeOfPeople));
+        assertEquals(expected,pizzaApp.getTotalPriceOfOrder(size));
 
-
-    }
-
-    @Test
-    public void testForException() {
-        String typeOfBox = "Big Size";
-        String [][] typeOfPeople = {{"Hungry","10"},{"Super hungry","10"},{"Class","5"}};
-        assertThrows(IllegalArgumentException.class, ()-> pizzaApp.getTotalPriceOfOrder(typeOfBox, typeOfPeople));
-
+    }@Test
+    public  void testEnum(){
+        PizzaAppConstant pizza = PizzaAppConstant.MEDIUM;
+        assertEquals(3000,pizza.getPrice());
     }
     }
 

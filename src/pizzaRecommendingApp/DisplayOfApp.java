@@ -1,56 +1,61 @@
 package pizzaRecommendingApp;
 
+import java.sql.SQLOutput;
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class DisplayOfApp {
-    private String [][] arrays = {{"SUPER HUNGRY","0"},{"HUNGRY", "0"},{"CLASSIC","0"}};
+
     PizzaApp pizza = new PizzaApp();
+
 
     public void displayAvailableBoxes(){
         for (PizzaAppConstant result : PizzaAppConstant.values()) {
-            System.out.println(result);
+            System.out.println(result );
         }
     }
 
 
     public void  customersOrderInputs(){
-        for(int count = 0; count < arrays.length;count++){
-            System.out.print(arrays[count][0] + " : " );
-            String userInput = collectInput();
-            arrays[count][1] = userInput;
-
+        for(SetOfAvailableStomachSlice numb : SetOfAvailableStomachSlice.values()) {
+            System.out.print(numb + " ");
+            String numbs = collectInput();
+            pizza.getNumberOfPeopleSlice(numbs,numb);
         }
+
     }
+
     public void checkInput() {
         displayAvailableBoxes();
         System.out.println();
         String input = sizePreferred();
         if ((input.equalsIgnoreCase("BIG") || input.equalsIgnoreCase("MEDIUM") || input.equalsIgnoreCase("SMALL"))) {
             customersOrderInputs();
-            String[][] orders = arrayOfOrders();
-            displayOrder(input, orders);
+            displayOrder(input);
 
         }
         else{
             throw new IllegalArgumentException("Invalid Input");
         }
     }
+
+
     public String sizePreferred(){
         System.out.println("Enter your Preferred Box size among the available pizza size listed above: ");
         return collectInput();
     }
-    public String[][] arrayOfOrders(){
-        return arrays;
-    }
+
     private String collectInput(){
         Scanner scanner = new Scanner(System.in);
         return scanner.next();
     }
-    public void displayOrder(String typeOfBox,String[][] typeOfPeople){
-        System.out.println("Number of Slices needed: "+ pizza.getTotalNumberOfSlice(typeOfPeople));
-        System.out.println("Number of boxes: " + pizza.getTotalNumberOfBoxes(typeOfBox,typeOfPeople));
-        System.out.println("Number of slices left: " + pizza.getNumberOfSlicesRemain(typeOfBox,typeOfPeople));
-        System.out.println("Total Price: " + pizza.getTotalPriceOfOrder(typeOfBox,typeOfPeople));
+
+
+    public void displayOrder(String typeOfBox){
+        System.out.println("Number of Slices needed: "+ pizza.getTotal());
+        System.out.println("Number of boxes: " + pizza.getTotalNumberOfBoxes(typeOfBox, pizza.getTotal()));
+        System.out.println("Number of slices left: " + pizza.getNumberOfSlicesRemain(typeOfBox));
+        System.out.println("Total Price: " + pizza.getTotalPriceOfOrder(typeOfBox));
 
     }
 }
