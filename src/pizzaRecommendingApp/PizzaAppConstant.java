@@ -1,7 +1,7 @@
 package pizzaRecommendingApp;
 
 public enum PizzaAppConstant {
-    LARGESIZE, MEDIUMSIZE, SMALLSIZE;
+    BIG, MEDIUM, SMALL;
 
 
 
