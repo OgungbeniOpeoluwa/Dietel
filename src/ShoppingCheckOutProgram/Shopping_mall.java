@@ -1,4 +1,4 @@
-package AtmCard;
+package ShoppingCheckOutProgram;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -106,6 +106,12 @@ public class Shopping_mall {
             answer = Shopping_mall.collectInput("add more item").toLowerCase();
         }
         return count;
+
+    }
+    public static String returnDates(){
+        LocalDateTime date = LocalDateTime.now();
+        DateTimeFormatter dates = DateTimeFormatter.ofPattern("dd-MM-yy  HH:mm:ss ");
+        return  date.format(dates);
 
     }
 }

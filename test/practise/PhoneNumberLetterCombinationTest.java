@@ -17,9 +17,8 @@ class PhoneNumberLetterCombinationTest {
     }
     @Test
     public void testThatAllAnotherPossibleLetterOfCombinationIsReturn(){
-        String numb = "2";
-        String [] array = {"a","b","c"};
-        System.out.println(Arrays.toString(PhoneNumberLetterCombination.letterCombination(numb)));
+        String numb = "34";
+        String [] array =  {"dg", "dh", "di", "eg", "eh", "ei", "fg", "fh", "fi"};
         assertArrayEquals(array,PhoneNumberLetterCombination.letterCombination(numb));
 
 

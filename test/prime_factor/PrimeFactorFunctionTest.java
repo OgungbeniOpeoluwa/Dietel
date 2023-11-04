@@ -1,4 +1,4 @@
-package prime_factor;
+ package prime_factor;
 
 import org.junit.jupiter.api.Test;
 

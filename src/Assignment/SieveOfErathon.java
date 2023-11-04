@@ -36,8 +36,4 @@ public class SieveOfErathon {
         return array;
     }
 
-
-    public static void main(String[] args) {
-        System.out.println((sieveFunction(1,10)));
-    }
 }

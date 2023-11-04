@@ -1,19 +1,11 @@
-package AtmCard;
-import static AtmCard.Shopping_mall.*;
+package ShoppingCheckOutProgram;
+import static ShoppingCheckOutProgram.Shopping_mall.*;
 
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.Scanner;
 
 public class  checkOutSystem {
     public static void main(String[] args) {
         final double tax = 0.175;
-
-        LocalDateTime date = LocalDateTime.now();
-        DateTimeFormatter dates = DateTimeFormatter.ofPattern("dd-MM-yy  HH:mm:ss ");
-        String formatted = date.format(dates);
 
         ArrayList<String> products = new ArrayList<>();
         ArrayList<Integer> numberOfItems = new ArrayList<>();
@@ -27,7 +19,7 @@ public class  checkOutSystem {
 
 
 
-        displayInformation(formatted,name,cashierName);
+        displayInformation(returnDates(),name,cashierName);
         displays();
         displayPrices(products,numberOfItems,priceOfItem,count);
 
@@ -46,7 +38,7 @@ public class  checkOutSystem {
         }
         double finalResult = amount - totalTotal;
 
-        displayInformation(formatted,name,cashierName);
+        displayInformation(returnDates(),name,cashierName);
         displayPrices(products,numberOfItems,priceOfItem,count);
         displaySubtotal_discount_vat(result,discounts,vat);
         display(totalTotal,amount,finalResult);

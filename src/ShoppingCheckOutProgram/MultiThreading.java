@@ -1,4 +1,4 @@
-package AtmCard;
+package ShoppingCheckOutProgram;
 
 public class MultiThreading extends Thread{
     @Override
