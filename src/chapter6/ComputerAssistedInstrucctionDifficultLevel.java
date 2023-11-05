@@ -3,9 +3,6 @@ package chapter6;
 import java.util.Scanner;
 
 public class ComputerAssistedInstrucctionDifficultLevel {
-    public static void main(String[] args) {
-        diplayResult();
-    }
 
 
  static Scanner scanner = new Scanner(System.in);

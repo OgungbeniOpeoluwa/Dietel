@@ -112,6 +112,5 @@ public class Shopping_mall {
         LocalDateTime date = LocalDateTime.now();
         DateTimeFormatter dates = DateTimeFormatter.ofPattern("dd-MM-yy  HH:mm:ss ");
         return  date.format(dates);
-
     }
 }

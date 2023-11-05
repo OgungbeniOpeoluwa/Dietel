@@ -6,6 +6,7 @@ import java.util.StringTokenizer;
 
 public class Calculator {
 
+
     public static int addition(String number) {
         int total = 0;
         StringTokenizer result = new StringTokenizer(number, " +");
@@ -34,7 +35,6 @@ public class Calculator {
         }
         return total;
     }
-
     public static int square(String number) {
         return 0;
     }
