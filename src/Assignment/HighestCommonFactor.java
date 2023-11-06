@@ -1,13 +1,14 @@
 package Assignment;
 
-import chapter6.ComputerAssitedInstruction;
-import liangExcersise.ComputerDeviation;
 import prime_factor.PrimeFactorFunction;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class LowestCommonFactor {
+public class HighestCommonFactor {
+    public static void main(String[] args) {
+        System.out.println(Arrays.toString(commonFactor(12, 6, 30)));
+    }
 
     public static int [] commonFactor(int...number) {
         int max = maximum(number);

@@ -1,66 +1,172 @@
 package practise;
 
-import java.security.SecureRandom;
-import java.sql.SQLOutput;
-import java.util.StringTokenizer;
+import java.util.ArrayList;
 
 public class calculator2 {
-    public static void main(String[] args) {
-        String number = "1+2-4*5";
-        StringTokenizer myToken = new StringTokenizer(number,"+");
-        int total = 0;
-        int result = 0;
+    private ArrayList <String> result = new ArrayList<>();
+    int counter = 0;
 
-        while (myToken.hasMoreTokens()) {
-            String num = myToken.nextToken();
-            if (num.length() > 2 && num.contains("-")) {
-                result += calculate(num);
-            } if (num.length()>2 && num.contains("*")) {
-                result+=calculates(num);
 
-            } else {
-                result += Integer.parseInt(num);
+    public void  boardMas(String number) {
+        int start = 0;
+        if(number.charAt(0) == '-'){
+           result = checker(number);
+            start = counter;
+            for (int count = counter ; count < number.length(); count++) {
+                if (!(number.charAt(count) + "").matches("\\d+")) {
+                    result.add(number.substring(start, count));
+                    result.add(String.valueOf(number.charAt(count)));
+                    start = count + 1;
+                }
             }
-        }
-        System.out.println(calculate("-3-8"));
 
-//            if (num.charAt(0) == '+' || num.charAt(0) == '-'){
-//                Sresult += Integer.parseInt(num);
-//            }else {
-//                result += calculate(num);
-//            }
-
-        //System.out.println(total);
-        System.out.println(result);
-        //  System.out.println(Calculator.checkForTheIndexOfAsPositiveAndNegativeSign(number.substring(2)));
-        SecureRandom random = new SecureRandom();
-        }
-
-    private static int calculate(String num) {
-        StringTokenizer numb = new StringTokenizer(num,"-");
-        int total = 0;
-        if(num.charAt(0) == '-') {
-            total += total;
         }
         else{
-            total = Integer.parseInt(numb.nextToken());
+            for (int count = 0; count < number.length(); count++) {
+               if(!(number.charAt(count) + "").matches("\\d+")){
+                    result.add(number.substring(start,count));
+                    result.add(String.valueOf(number.charAt(count)));
+                    start = count +1;
+
+                }
+            }
+
         }
-        while(numb.hasMoreTokens()){
-            int result = Integer.parseInt(numb.nextToken());
-            total -= result;
-        }
-       return total;
-    }
-    private static int calculates(String num) {
-        StringTokenizer numb = new StringTokenizer(num,"*");
-        int total = 1;
-        while(numb.hasMoreTokens()){
-            int result = Integer.parseInt(numb.nextToken());
-            total *= result;
-        }
-        return total;
+        result.add(String.valueOf(number.charAt(number.length()-1)));
+        System.out.println(result);
+
     }
 
+    public void calculator(String number){
+        boardMas(number);
+        for(String numb : result){
+            if(numb.equals("/")){
+                int count = result.indexOf(numb);
+                 division(count);
+            }
+        }
+
+          for(String numb : result){
+            if(numb.equals("*")) {
+                int count = result.indexOf(numb);
+                multiplication(count);
+
+            }
+        }
+
+          for(String numb : result) {
+            if (numb.equals("+")) {
+                System.out.println(result);
+                int count = result.indexOf(numb);
+                addition(count);
+            }
+        }
+
+
+        for(String numb : result){
+            if(numb.equals("-")){
+                int count = result.indexOf(numb);
+                subtraction(count);
+
+            }
+        }
+    }
+
+    public void division(int numb){
+        ArrayList <String> number = new ArrayList<>();
+        int counts = Integer.parseInt(result.get(numb-1));
+        int counter = Integer.parseInt(result.get(numb + 1));
+        int total = counts / counter;
+        for(int count = 0; count < result.size();count++){
+            if(count == numb -1){
+                number.add(String.valueOf(total));
+                count +=2;
+            }
+            else {
+                String res = result.get(count);
+                number.add(res);
+            }
+
+        }
+        result = number;
+
+    }
+    public void subtraction(int numb){
+        ArrayList <String> number = new ArrayList<>();
+        int counts = Integer.parseInt(result.get(numb-1));
+        int counter = Integer.parseInt(result.get(numb + 1));
+        int total = counts - counter;
+        for(int count = 0; count < result.size();count++){
+            if(count == numb -1){
+                number.add(String.valueOf(total));
+                count +=2;
+            }
+            else {
+                String res = result.get(count);
+                number.add(res);
+            }
+        }
+        result = number;
+
+    }
+    public void multiplication(int numb){
+        ArrayList <String> number = new ArrayList<>();
+        int counts = Integer.parseInt(result.get(numb-1));
+        System.out.println(counts);
+        int counter = Integer.parseInt(result.get(numb + 1));
+        System.out.println(counter);
+        int total = counts * counter;
+        for(int count = 0; count < result.size();count++){
+            if(count == numb-1){
+                number.add(String.valueOf(total));
+                count +=2;
+            }
+            else {
+                String res = result.get(count);
+                number.add(res);
+            }
+
+        }
+        System.out.println(result);
+        result = number;
+
+    }
+    public void addition(int numb){
+        ArrayList <String> number = new ArrayList<>();
+        int counts = Integer.parseInt(result.get(numb-1));
+        int counter = Integer.parseInt(result.get(numb + 1));
+        int total = counts + counter;
+        for(int count = 0; count < result.size();count++){
+            if(count == numb -1){
+                number.add(String.valueOf(total));
+                count +=2;
+            }else {
+                String res = result.get(count);
+                number.add(res);
+            }
+        }
+        result = number;
+
+    }
+    private  ArrayList<String> checker (String numbers) {
+        String results = "";
+        int start = 1;
+        for (int count = 1; count < numbers.length(); count++) {
+            if (!(numbers.charAt(count) + "").matches("\\d+")) {
+                if (numbers.charAt(0) == '-') {
+                    results += numbers.charAt(0);
+                    result.add(results + numbers.substring(start, count));
+                    result.add(String.valueOf(numbers.charAt(count)));
+                    counter = count + 1;
+                    break;
+                }
+            }
+        }
+        return result;
+    }
+        public int getResult(){
+            return Integer.parseInt(result.get(0));
+        }
 }
 
 

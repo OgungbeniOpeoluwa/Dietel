@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.StringTokenizer;
 
-public class Calculator {
+public class Calculator{
 
 
     public static int addition(String number) {
@@ -35,7 +35,5 @@ public class Calculator {
         }
         return total;
     }
-    public static int square(String number) {
-        return 0;
-    }
+
 }
