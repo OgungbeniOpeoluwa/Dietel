@@ -6,16 +6,23 @@ public class TortiseAndTheHare {
 
     private int tortisePosition =1;
     private int harePosition =1;
-    private String [] tortise = new  String[70];
-    private  String [] hare = new  String[70];
-
+    private final String [] positionLine = new  String[70];
     public TortiseAndTheHare(){
         for(int count = 0; count < 70; count++){
-            tortise[count] = "";
-            hare  [count] = "";
+            positionLine[count] = "";
         }
-        tortise[getTortisePosition()-1] ="H" ;
-        hare[getHarePosition()-1]= "T";
+        positionLine[getHarePosition()-1]= "H,T";
+    }
+    public void setTortiseLine(int tortisePosition,int harePosition) {
+        positionLine[tortisePosition] = "H";
+        positionLine[harePosition] = "T";
+        if(tortisePosition == harePosition){
+            positionLine[tortisePosition] = "OUCH";
+        }
+    }
+
+    public String [] getPositionLine(){
+        return positionLine;
     }
 
     public int getTortisePosition() {

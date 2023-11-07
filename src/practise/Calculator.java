@@ -1,39 +1,14 @@
 package practise;
 
-import java.util.ArrayList;
-import java.util.InputMismatchException;
-import java.util.StringTokenizer;
+import javax.swing.*;
 
 public class Calculator{
-
-
-    public static int addition(String number) {
-        int total = 0;
-        StringTokenizer result = new StringTokenizer(number, " +");
-        while(result.hasMoreTokens()){
-            total += Integer.parseInt(result.nextToken());
+    public static void main(String[] args){
+            Calculator2 cal = new Calculator2();
+            String userInput = JOptionPane.showInputDialog("PLEASE ENTER YOUR ARITHMETIC NUMBER");
+            cal.calculator(userInput);
+            System.out.println(cal.getFinalResult());
         }
-        return total;
+
     }
 
-    public static int subtraction(String number) {
-        int total = 0;
-        StringTokenizer myToken = new StringTokenizer(number," -");
-        if(number.charAt(0) == '-')total +=total;
-        else total=Integer.parseInt(myToken.nextToken());
-        while(myToken.hasMoreTokens()){
-            total -= Integer.parseInt(myToken.nextToken());
-        }
-        return total;
-    }
-
-    public static int multiplication(String number) {
-        int total = 1;
-        StringTokenizer result = new StringTokenizer(number," *");
-        while(result.hasMoreTokens()){
-             total *= Integer.parseInt(result.nextToken());
-        }
-        return total;
-    }
-
-}
