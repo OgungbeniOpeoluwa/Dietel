@@ -30,6 +30,14 @@ class MedianOfTwoSortedArrayTest {
         assertEquals(output,MedianOfTwoSortedList.medianOfTwoSortedArrrayFunction(firstList,secondList));
 
     }
+    @Test
+    public void testAnotherValue(){
+        int [] firstList = {1,3};
+        int [] secondList = {2,7};
+        double output = 2.5000;
+        assertEquals(output,MedianOfTwoSortedList.medianOfTwoSortedArrrayFunction(firstList,secondList));
+
+    }
 
 
 }
