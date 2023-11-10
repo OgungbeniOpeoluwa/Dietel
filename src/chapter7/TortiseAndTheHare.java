@@ -19,6 +19,20 @@ public class TortiseAndTheHare {
         if(tortisePosition == harePosition){
             positionLine[tortisePosition] = "OUCH";
         }
+        if(tortisePosition == 70)display("tortise");
+
+        if(harePosition == 70)display("hare");
+        if(tortisePosition  == 70 && harePosition == 70) display("tortise && hare");
+        if(tortisePosition > 70 || harePosition > 70)throw  new ArrayIndexOutOfBoundsException();
+
+    }
+
+    public void display(String numb){
+        switch(numb) {
+            case "tortise" -> System.out.println("TORTOISE WINS!!!,YAY!!!");
+            case "hare" -> System.out.println("Hare wins");
+            case "tortise && hare" -> System.out.println("It is a tie");
+        }
     }
 
     public String [] getPositionLine(){
