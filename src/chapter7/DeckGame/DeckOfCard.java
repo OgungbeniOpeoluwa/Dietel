@@ -4,6 +4,7 @@ import java.security.SecureRandom;
 import java.util.ArrayList;
 
 public class DeckOfCard {
+
    private static SecureRandom random = new SecureRandom();
     private static final int NUMBER_OF_CARD = 52;
     private Card [] deck = new Card[NUMBER_OF_CARD];
@@ -45,34 +46,52 @@ public class DeckOfCard {
            return result;
     }
 
-    public boolean  threeAndFourOfAKind( ArrayList <String> cardList){
-        int counters = 1;
+    public boolean  threeOfAKind( ArrayList <String> cardList){
+        int counters = 0;
         boolean result = false;
         for(int count = 0; count < cardList.size();count++){
-            for(int counter = count+1; counter < cardList.size();counter++){
-                if(cardList.get(count).equals(cardList.get(counter))) {
+            for(int counter = count; counter < cardList.size();counter++){
+                if(!(cardList.get(count).equals(cardList.get(counter)))) {
                     counters ++;
                 }
             }
             if(counters == 3) {
                 result = true;
                 break;}
+            counters = 0;
         }
         return result;
     }
     public boolean  fourOfAKind( ArrayList <String> cardList){
-        int counters = 1;
+        int counters = 0;
         boolean result = false;
         for(int count = 0; count < cardList.size();count++){
-            for(int counter = count+1; counter < cardList.size();counter++){
-                if(cardList.get(count).equals(cardList.get(counter))) {
+            for(int counter = count; counter < cardList.size();counter++){
+                if(cardList.get(count).equals(cardList.get(counter))){
                     counters ++;
                 }
             }
             if(counters == 4) {
                 result = true;
                 break;}
+            counters = 0;
         }
         return result;
+    }
+    public boolean  isAflush( ArrayList <String> cardList){
+        boolean result = true;
+        for(int count = 0; count < cardList.size();count++){
+            for(int counter = count+1; counter < cardList.size();counter++) {
+                if (!(cardList.get(count).equals(cardList.get(counter)))) {
+                    result = false;
+                    break;
+                }
+            }
+        }
+        return result;
+    }
+
+    public boolean twoPairs(ArrayList<String> myDeckSuites) {
+        return false;
     }
 }
