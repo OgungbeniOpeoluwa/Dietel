@@ -4,7 +4,6 @@ import java.util.Arrays;
 
 public class MedianOfTwoSortedList {
 
-
     public static double medianOfTwoSortedArrrayFunction(int[] firstArrays, int[] secondArrays) {
         int [] arrays = new int[firstArrays.length+secondArrays.length];
         for(int count = 0;count < firstArrays.length;count++){

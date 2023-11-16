@@ -16,15 +16,14 @@ public class DeckCardsMain {
 
 
             if(count % 5 ==0){
-                System.out.println(myDeckSuites);
                 System.out.println();
-                if(deckOfCard.isPair(myDeckCard))System.out.println(" is a pair");
-                System.out.println();
-                if(deckOfCard.threeOfAKind(myDeckCard))System.out.println(" has three of a kind ");
-                System.out.println();
-                if(deckOfCard.fourOfAKind(myDeckCard))System.out.println(" has four of a kind ");
-                System.out.println();
-                if(deckOfCard.isAflush(myDeckSuites))System.out.println(" has five same suites");
+                if(deckOfCard.isPair(myDeckCard))System.out.println(" A Pair");
+                if(deckOfCard.twoPairs(myDeckCard))System.out.println(" Two Pairs ");
+                if(deckOfCard.threeOfAKind(myDeckCard))System.out.println(" Three Of A kind ");
+                if(deckOfCard.fourOfAKind(myDeckCard))System.out.println(" Four Of A Kind");
+                if(deckOfCard.isAflush(myDeckSuites))System.out.println(" A Flush");
+                if(deckOfCard.isAStraight(myDeckCard))System.out.println(" A Straight");
+                if(deckOfCard.isAFullHouse(myDeckCard))System.out.println("Full house");
                 myDeckSuites.clear();
                 myDeckCard.clear();
 

@@ -2,6 +2,7 @@ package chapter7.DeckGame;
 
 import java.security.SecureRandom;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class DeckOfCard {
 
@@ -9,13 +10,18 @@ public class DeckOfCard {
     private static final int NUMBER_OF_CARD = 52;
     private Card [] deck = new Card[NUMBER_OF_CARD];
     private int currentCard = 0;
+    String [] faces;
+
     public DeckOfCard(){
-        String[] faces = {"Ace", "Deuce", "Three", "Four", "Five", "Six",
+        faces = new String[] {"Ace", "Deuce", "Three", "Four", "Five", "Six",
                 "Seven", "Eight", "Nine", "Ten", "Jack", "Queen", "King"};
         String[] suits = {"Hearts", "Diamonds", "Clubs", "Spades"};
         for (int count = 0; count < deck.length; count++) {
             deck[count] = new  Card(faces[count % 13], suits[count / 13]);
         }
+    }
+    public String [] getFaces(){
+        return  faces;
     }
     public void shuffle(){
         currentCard = 0;
@@ -51,7 +57,7 @@ public class DeckOfCard {
         boolean result = false;
         for(int count = 0; count < cardList.size();count++){
             for(int counter = count; counter < cardList.size();counter++){
-                if(!(cardList.get(count).equals(cardList.get(counter)))) {
+                if(cardList.get(count).equals(cardList.get(counter))){
                     counters ++;
                 }
             }
@@ -92,6 +98,71 @@ public class DeckOfCard {
     }
 
     public boolean twoPairs(ArrayList<String> myDeckSuites) {
-        return false;
+        boolean answer = false;
+        int counter = 0;
+        int result = 0;
+        for(int count = 0; count< myDeckSuites.size();count++){
+            for(int counts = count; counts < myDeckSuites.size();counts++){
+                if(myDeckSuites.get(count).equals(myDeckSuites.get(counts))){
+                    counter++;
+                }
+            }
+            if(counter == 2){
+                result++;
+            }
+            if(counter > 2){
+                answer = false;
+                break;
+            }
+            counter = 0;
+        }
+        if(result == 2){
+            answer = true;
+        }
+        return answer;
+    }
+
+    public boolean isAStraight(ArrayList<String> myDeckSuites) {
+        int counter = 0;
+        boolean answer = true;
+       for(int count = 0; count < getFaces().length; count++){
+           if(myDeckSuites.get(0).equals(getFaces()[count])) {
+               counter = count;
+               break;
+           }
+        }
+        for(int count = 0; count < myDeckSuites.size(); count++){
+               if(!(myDeckSuites.get(count).equals(getFaces()[counter]))){
+                    answer = false;
+                   break;
+               }
+                  counter++;
+        }
+        if(!answer){
+            counter-=1;
+            answer = true;
+            for(int counts = 0; counts < myDeckSuites.size(); counts++){
+                if(!(myDeckSuites.get(counts).equals(getFaces()[counter]))){
+                    answer = false;
+                    break;
+                }
+                counter--;
+            }
+        }
+
+
+      return answer;
+    }
+
+    public boolean isAFullHouse(ArrayList<String> myDeckSuites) {
+        boolean answer = isPair(myDeckSuites);
+        boolean answers = threeOfAKind(myDeckSuites);
+        boolean result = false;
+        if(answer && answers){
+            result = true;
+        }
+        return result;
+
+
     }
 }
