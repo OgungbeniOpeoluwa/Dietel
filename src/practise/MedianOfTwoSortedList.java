@@ -32,9 +32,16 @@ public class MedianOfTwoSortedList {
     }
 
     public static  double median(int [] arrays){
-        double number = (double) (arrays[0] + arrays[arrays.length - 1]) / 2;
-        return number;
-
+        double result = 0;
+        if(arrays.length % 2 == 0 ){
+            int number = arrays.length / 2;
+            result = (double)(arrays[number] + arrays[number-1]) / 2;
+        }
+        else{
+            int number = arrays.length/2;
+            result = arrays[number];
+        }
+        return result;
     }
 
 }

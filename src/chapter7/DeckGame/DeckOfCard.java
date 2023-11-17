@@ -3,6 +3,7 @@ package chapter7.DeckGame;
 import java.security.SecureRandom;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 
 public class DeckOfCard {
 
@@ -123,35 +124,34 @@ public class DeckOfCard {
     }
 
     public boolean isAStraight(ArrayList<String> myDeckSuites) {
-        int counter = 0;
+        HashMap<String, Integer> result = getStringIntegerHashMap();
+        int [] results =  sortFaceValue(sortFaceValueToNumbers(myDeckSuites, result));
+        int counter = results[0];
         boolean answer = true;
-       for(int count = 0; count < getFaces().length; count++){
-           if(myDeckSuites.get(0).equals(getFaces()[count])) {
-               counter = count;
-               break;
+       for(int count = 1; count < results.length; count++){
+            counter +=1;
+            if(results[count] != counter){
+                answer = false;
            }
         }
-        for(int count = 0; count < myDeckSuites.size(); count++){
-               if(!(myDeckSuites.get(count).equals(getFaces()[counter]))){
-                    answer = false;
-                   break;
-               }
-                  counter++;
-        }
-        if(!answer){
-            counter-=1;
-            answer = true;
-            for(int counts = 0; counts < myDeckSuites.size(); counts++){
-                if(!(myDeckSuites.get(counts).equals(getFaces()[counter]))){
-                    answer = false;
-                    break;
-                }
-                counter--;
-            }
-        }
+        return answer;
+    }
 
+    private static int [] sortFaceValueToNumbers(ArrayList<String> myDeckSuites, HashMap<String, Integer> result) {
+        int [] arrays = new int[myDeckSuites.size()];
+        for(int count = 0; count < myDeckSuites.size(); count++ ){
+            arrays[count] = result.get(myDeckSuites.get(count));
+        }
+        return arrays;
+    }
 
-      return answer;
+    private HashMap<String, Integer> getStringIntegerHashMap() {
+        HashMap <String, Integer> result = new HashMap<>();
+        for(int count = 0;count < 13;count++){
+            result.put(getFaces()[count], (count+1) );
+
+        }
+        return result;
     }
 
     public boolean isAFullHouse(ArrayList<String> myDeckSuites) {
@@ -163,6 +163,19 @@ public class DeckOfCard {
         }
         return result;
 
-
     }
+    private int [] sortFaceValue(int [] faceValues){
+        for(int count = 0; count < faceValues.length;count++){
+            for(int counts = 0; counts< faceValues.length; counts++){
+                if(faceValues[count] == faceValues[counts]){
+                    int temp = faceValues[count];
+                    faceValues[count] = faceValues[counts];
+                    faceValues[counts] = temp;
+                }
+            }
+        }
+        return faceValues;
+    }
+
+
 }

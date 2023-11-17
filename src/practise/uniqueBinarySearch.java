@@ -7,6 +7,7 @@ public class uniqueBinarySearch {
     public static String binarySearchFunction(String[] numbers) {
         String result = "";
         for(int count = 0; count < numbers.length;count++){
+            String results = numbers[count];
 
 
         }

@@ -24,10 +24,9 @@ public class DeckCardsMain {
                 if(deckOfCard.isAflush(myDeckSuites))System.out.println(" A Flush");
                 if(deckOfCard.isAStraight(myDeckCard))System.out.println(" A Straight");
                 if(deckOfCard.isAFullHouse(myDeckCard))System.out.println("Full house");
-                myDeckSuites.clear();
                 myDeckCard.clear();
-
-
+                System.out.println(myDeckCard);
+                myDeckSuites.clear();
             }
 
             }
