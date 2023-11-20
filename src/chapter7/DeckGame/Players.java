@@ -15,17 +15,5 @@ public class Players {
     public void play(){
         deckOfCard.shuffle();
     }
-  //  public boolean game(ArrayList <Card> result){
-//        ArrayList <String> faces = new ArrayList<>();
-//        ArrayList <String> suites = new ArrayList<>();
-//        for(int count = 0; count < result.size(); count++){
-//            Card results = result.get(count);
-//            faces.add(results.getFace());
-//            suites.add(results.getSuites());
-//        }
-//
-//        deckOfCard.isPair();
-//        deckOfCard.twoPairs();
-//        deckOfCard.threeOfAKind();
-//    }
+
 }

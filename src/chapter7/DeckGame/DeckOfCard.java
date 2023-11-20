@@ -1,9 +1,8 @@
 package chapter7.DeckGame;
 
 import java.security.SecureRandom;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
+import java.util.HashSet;
 
 public class DeckOfCard {
 
@@ -11,17 +10,16 @@ public class DeckOfCard {
     private static final int NUMBER_OF_CARD = 52;
     private Card [] deck = new Card[NUMBER_OF_CARD];
     private int currentCard = 0;
-    String [] faces;
+    FaceCard [] faces;
 
     public DeckOfCard(){
-        faces = new String[] {"Ace", "Deuce", "Three", "Four", "Five", "Six",
-                "Seven", "Eight", "Nine", "Ten", "Jack", "Queen", "King"};
-        String[] suits = {"Hearts", "Diamonds", "Clubs", "Spades"};
+        faces =  FaceCard.values();
+        Suites[] suits = Suites.values();
         for (int count = 0; count < deck.length; count++) {
             deck[count] = new  Card(faces[count % 13], suits[count / 13]);
         }
     }
-    public String [] getFaces(){
+    public FaceCard [] getFaces(){
         return  faces;
     }
     public void shuffle(){
@@ -40,11 +38,11 @@ public class DeckOfCard {
             return  null;
         }
     }
-    public boolean  isPair( ArrayList <String> cardList){
+    public boolean  isPair( Card [] cardList){
         boolean result = false;
-           for(int count = 0; count < cardList.size();count++){
-               for(int counter = count+1; counter < cardList.size();counter++){
-                   if(cardList.get(count).equals(cardList.get(counter))) {
+           for(int count = 0; count < cardList.length;count++){
+               for(int counter = count+1; counter < cardList.length;counter++){
+                   if(cardList[count].getFace().equals(cardList[counter].getFace())) {
                        result = true;
                        break;
                    }
@@ -53,12 +51,12 @@ public class DeckOfCard {
            return result;
     }
 
-    public boolean  threeOfAKind( ArrayList <String> cardList){
+    public boolean  threeOfAKind(Card [] cardsList){
         int counters = 0;
         boolean result = false;
-        for(int count = 0; count < cardList.size();count++){
-            for(int counter = count; counter < cardList.size();counter++){
-                if(cardList.get(count).equals(cardList.get(counter))){
+        for(int count = 0; count < cardsList.length;count++){
+            for(int counter = count; counter < cardsList.length;counter++){
+                if(cardsList[count].getFace().equals(cardsList[counter].getFace())){
                     counters ++;
                 }
             }
@@ -69,12 +67,12 @@ public class DeckOfCard {
         }
         return result;
     }
-    public boolean  fourOfAKind( ArrayList <String> cardList){
+    public boolean  fourOfAKind(Card [] cardList){
         int counters = 0;
         boolean result = false;
-        for(int count = 0; count < cardList.size();count++){
-            for(int counter = count; counter < cardList.size();counter++){
-                if(cardList.get(count).equals(cardList.get(counter))){
+        for(int count = 0; count < cardList.length;count++){
+            for(int counter = count; counter < cardList.length;counter++){
+                if(cardList[count].getFace().equals(cardList[counter].getFace())){
                     counters ++;
                 }
             }
@@ -85,11 +83,11 @@ public class DeckOfCard {
         }
         return result;
     }
-    public boolean  isAflush( ArrayList <String> cardList){
+    public boolean  isAflush( Card [] cardList){
         boolean result = true;
-        for(int count = 0; count < cardList.size();count++){
-            for(int counter = count+1; counter < cardList.size();counter++) {
-                if (!(cardList.get(count).equals(cardList.get(counter)))) {
+        for(int count = 0; count < cardList.length;count++){
+            for(int counter = count+1; counter < cardList.length;counter++) {
+                if (!(cardList[count].getSuites().equals(cardList[counter].getSuites()))) {
                     result = false;
                     break;
                 }
@@ -98,13 +96,13 @@ public class DeckOfCard {
         return result;
     }
 
-    public boolean twoPairs(ArrayList<String> myDeckSuites) {
+    public boolean twoPairs(Card [] myDeckSuites) {
         boolean answer = false;
         int counter = 0;
         int result = 0;
-        for(int count = 0; count< myDeckSuites.size();count++){
-            for(int counts = count; counts < myDeckSuites.size();counts++){
-                if(myDeckSuites.get(count).equals(myDeckSuites.get(counts))){
+        for(int count = 0; count< myDeckSuites.length;count++){
+            for(int counts = count; counts < myDeckSuites.length;counts++){
+                if(myDeckSuites[count].getFace().equals(myDeckSuites[counts].getFace())){
                     counter++;
                 }
             }
@@ -123,9 +121,9 @@ public class DeckOfCard {
         return answer;
     }
 
-    public boolean isAStraight(ArrayList<String> myDeckSuites) {
-        HashMap<String, Integer> result = getStringIntegerHashMap();
-        int [] results =  sortFaceValue(sortFaceValueToNumbers(myDeckSuites, result));
+    public boolean isAStraight(Card [] myDeckSuites) {
+       // HashMap<FaceCard, Integer> result = getStringIntegerHashMap();
+        int [] results =  sortFaceValueAfterFaceValuesAreInDigitToDescendingOrder(sortFaceValueToNumbers(myDeckSuites));
         int counter = results[0];
         boolean answer = true;
        for(int count = 1; count < results.length; count++){
@@ -136,17 +134,26 @@ public class DeckOfCard {
         }
         return answer;
     }
+    public boolean isAFullHouse(Card [] myDeckSuites) {
+        HashSet <FaceCard> result = new HashSet<>();
+        for (int count = 0; count < myDeckSuites.length; count++){
+            result.add(myDeckSuites[count].getFace());
+        }
+        if (result.size() == 2)return true;
+        else return false;
+    }
 
-    private static int [] sortFaceValueToNumbers(ArrayList<String> myDeckSuites, HashMap<String, Integer> result) {
-        int [] arrays = new int[myDeckSuites.size()];
-        for(int count = 0; count < myDeckSuites.size(); count++ ){
-            arrays[count] = result.get(myDeckSuites.get(count));
+    public  int [] sortFaceValueToNumbers(Card [] myDeckSuites) {
+        HashMap <FaceCard, Integer> result = getStringIntegerHashMap();
+        int [] arrays = new int[myDeckSuites.length];
+        for(int count = 0; count < myDeckSuites.length; count++ ){
+            arrays[count] = result.get(myDeckSuites[count].getFace());
         }
         return arrays;
     }
 
-    private HashMap<String, Integer> getStringIntegerHashMap() {
-        HashMap <String, Integer> result = new HashMap<>();
+    private HashMap<FaceCard, Integer> getStringIntegerHashMap() {
+        HashMap <FaceCard, Integer> result = new HashMap<>();
         for(int count = 0;count < 13;count++){
             result.put(getFaces()[count], (count+1) );
 
@@ -154,20 +161,10 @@ public class DeckOfCard {
         return result;
     }
 
-    public boolean isAFullHouse(ArrayList<String> myDeckSuites) {
-        boolean answer = isPair(myDeckSuites);
-        boolean answers = threeOfAKind(myDeckSuites);
-        boolean result = false;
-        if(answer && answers){
-            result = true;
-        }
-        return result;
-
-    }
-    private int [] sortFaceValue(int [] faceValues){
+    private int [] sortFaceValueAfterFaceValuesAreInDigitToDescendingOrder(int [] faceValues){
         for(int count = 0; count < faceValues.length;count++){
             for(int counts = 0; counts< faceValues.length; counts++){
-                if(faceValues[count] == faceValues[counts]){
+                if(faceValues[count] < faceValues[counts]){
                     int temp = faceValues[count];
                     faceValues[count] = faceValues[counts];
                     faceValues[counts] = temp;

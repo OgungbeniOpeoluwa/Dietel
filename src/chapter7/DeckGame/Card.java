@@ -1,19 +1,19 @@
 package chapter7.DeckGame;
 
 public class Card {
-    private String face;
-    private String suite;
-    public Card(String face, String suite){
+    private FaceCard face;
+    private Suites suite;
+    public Card(FaceCard face, Suites suite){
         this.face = face;
         this.suite = suite;
     }
     public String toString(){
         return face + " of " + suite;
     }
-    public String getFace(){
+    public FaceCard getFace(){
         return face;
     }
-    public String getSuites(){
+    public Suites getSuites(){
         return suite;
     }
 }
