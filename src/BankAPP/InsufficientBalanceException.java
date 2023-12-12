@@ -1,2 +1,7 @@
-package BankAPP;public class InsufficientBalanceException {
+package BankAPP;
+
+public class InsufficientBalanceException extends RuntimeException {
+    public InsufficientBalanceException(String message) {
+        super(message);
+    }
 }

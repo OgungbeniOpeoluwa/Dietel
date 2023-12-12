@@ -3,22 +3,14 @@ package practise;
 public class ShufflingArray {
 
     public static int[] shuffleFunction(int[] arrays) {
-        int [] arrayss = new int[arrays.length];
-       int counts = 0;
-        for(int count = 1; count < arrays.length ;count+=2){
-            arrayss[counts] = arrays[count];
-            arrayss[count] = arrays[counts];
-            counts+=2;
+        int counts = 0;
+        for(int count = 1; count < arrays.length ;count+=2) {
+            int temp = arrays[counts];
+            arrays[counts] = arrays[count];
+            arrays[count] = temp;
+            counts += 2;
         }
-        if(checkLength(arrays)) return arrayss;
-        else{
-           arrayss[arrays.length-1] = arrays[arrays.length-1];
-           return arrayss;
-        }
-    }
-    public static boolean checkLength(int[] arrays) {
-        if(arrays.length%2 == 0) return true;
-        else return false;
+        return arrays;
     }
 
     public static int[] fillShuffleFunction(int[] arrays) {

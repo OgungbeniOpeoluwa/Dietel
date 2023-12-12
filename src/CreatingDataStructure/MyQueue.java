@@ -1,67 +1,133 @@
 package CreatingDataStructure;
 
+
+import java.util.Arrays;
+
 public class MyQueue {
-    private int size;
-  MyArrayList arrayList = new MyArrayList();
-    public MyQueue(int size){
-        this.size = size;
-    }
-    public MyQueue(){
-    }
 
-    public  boolean isEmpty() {
-        return arrayList.isEmpty();
+    private int numberOfElement;
+   private final int capacity;
+   private final int [] arraysOfNumbers;
+    int count;
+
+    public int getNumberOfElement() {
+        return numberOfElement;
     }
 
+    public MyQueue(int capacity) {
+        arraysOfNumbers = new int[capacity];
+        this.capacity = capacity;
+    }
 
-    public void add(int element) {
-        if (arrayList.size() != size || size == 0) arrayList.add(element);
-        else throw new ArrayIndexOutOfBoundsException("Array out of bounds");
+    public boolean isEmpty() {
+        return numberOfElement == 0;
+
+    }
+
+    public boolean add(int element) {
+        attemptToShiftElements();
+        checkIfQueueIsFull();
+         arraysOfNumbers[numberOfElement++]  = element;
+        return true;
+    }
+
+    private void attemptToShiftElements() {
+        int counter = 0;
+        if(count > 0){
+            for(int counts = count; counts < numberOfElement;counts++){
+               int temp = arraysOfNumbers[counter];
+                arraysOfNumbers[counter] = arraysOfNumbers[counts];
+                arraysOfNumbers[counts] = temp;
+                System.out.println(Arrays.toString(arraysOfNumbers));
+                counter++;
+            }
+           this.numberOfElement -= count;
+           count = 0;
+
+        }
+    }
+
+    private void checkIfQueueIsFull() {
+        if(numberOfElement == capacity)throw new QueueFullException("Capacity full");
     }
 
     public boolean offer(int element) {
-        if (arrayList.size() != size || size == 0) {
-            arrayList.add(element);
-            return true;
+        try {
+            return add(element);
         }
-        else return false;
-    }
-
-    public int size() {
-        return arrayList.size();
+        catch (QueueFullException ex){
+            return false;
+        }
     }
 
     public int remove() {
-        int result;
-        if(arrayList.isEmpty()) throw new ArrayIndexOutOfBoundsException("Queue is Empty");
-        else{
-            result = arrayList.get(0);
-            arrayList.remove(0);
-        }
-        return result;
+        validateIfQueueIsEmpty();
+        validateIfAllInputsAreRemoved();
+        int element = arraysOfNumbers[count];
+        arraysOfNumbers[count] = 0;
+        count++;
+        return element;
     }
 
     public Integer poll() {
-        int result = 0;
-        if(arrayList.isEmpty()) return null;
-        else{
-            result = arrayList.get(0);
-            arrayList.remove(0);
+        try{
+           return remove();
+        }
+        catch (QueueFullException ex){
+            return null;
+        }
+    }
+
+    public int element() {
+        validateIfQueueIsEmpty();
+        return arraysOfNumbers[count];
+    }
+
+    public Integer peek() {
+        try{
+            return element();
+        }
+        catch(QueueFullException ex){
+            return null;
+        }
+    }
+    public String toString() {
+        if(count > 0) return String.format("[" + arraysOfElementInputted(count) + "]");
+        else return String.format("[" + arraysOfElementInputted(0) + "]");
+    }
+
+
+
+
+    private String arraysOfElementInputted(int count) {
+        String result = "";
+        for (int counts = count; counts < numberOfElement; counts++) {
+            if (counts == numberOfElement - 1) {
+                result += this.arraysOfNumbers[counts];
+                break;
+            }
+            result += this.arraysOfNumbers[counts] + ",";
         }
         return result;
     }
 
-    public int element() {
-        if(arrayList.isEmpty()) throw new ArrayIndexOutOfBoundsException("Queue is Empty");
-        else return arrayList.get(0);
+    private void validateIfQueueIsEmpty(){
+            if(numberOfElement == 0) throw  new QueueFullException("Queue is empty");
+        }
 
+        private void validateIfAllInputsAreRemoved(){
+            if( count == numberOfElement)throw new QueueFullException("Queue is empty");
+        }
+
+
+    public static class QueueFullException extends RuntimeException {
+
+        public QueueFullException(String message) {
+            super(message);
+        }
     }
 
-    public Integer peek() {
-        if(arrayList.isEmpty()) return null;
-        else return  arrayList.get(0);
-    }
-    public String toString(){
-        return arrayList.toString();
-    }
+   
+
+
 }

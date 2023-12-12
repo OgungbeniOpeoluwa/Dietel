@@ -1,2 +1,7 @@
-package BankAPP;public class InvalidAmountException {
+package BankAPP;
+
+public class InvalidAmountException extends RuntimeException{
+    public InvalidAmountException(String message) {
+        super(message);
+    }
 }
